@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/globals.scss'
 import Header from '@/components/header'
-import { ApolloWrapper } from "/@lib/apollo-wrapper";
+import { ApolloWrapper } from "../lib/apollo-provider";
 
 const flame = localFont({
   src: [

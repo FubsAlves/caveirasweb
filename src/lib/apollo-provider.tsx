@@ -2,15 +2,15 @@
 
 import { ApolloLink, HttpLink } from "@apollo/client";
 import {
-  NextSSRApolloClient,
   ApolloNextAppProvider,
   NextSSRInMemoryCache,
+  NextSSRApolloClient,
   SSRMultipartLink,
 } from "@apollo/experimental-nextjs-app-support/ssr";
 
 function makeClient() {
   const httpLink = new HttpLink({
-      uri: process.env.HYGRAPH_API,
+      uri: process.env.HYGRAPH_API
   });
 
   return new NextSSRApolloClient({
