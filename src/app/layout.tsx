@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '../styles/globals.scss'
 import Header from '@/components/header'
+import { ApolloWrapper } from "/@lib/apollo-wrapper";
 
 const flame = localFont({
   src: [
@@ -41,7 +42,9 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
       <body>
         <Header/>
-        {children}
+        <ApolloWrapper>
+          {children}
+        </ApolloWrapper>
       </body>
     </html>
   )

@@ -7,6 +7,7 @@ import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rs
 
 export const { getClient } = registerApolloClient(() => {
   return new NextSSRApolloClient({
+    ssrMode: true,
     cache: new NextSSRInMemoryCache(),
     link: new HttpLink({
       uri: process.env.HYGRAPH_API,
