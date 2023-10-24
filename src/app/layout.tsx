@@ -1,6 +1,28 @@
 import type { Metadata } from 'next'
-
+import localFont from 'next/font/local'
 import './globals.css'
+
+const flame = localFont({
+  src: [
+    {
+      path: '../../public/fonts/flame/Flame-Sans.otf',
+      weight: '200',
+    },
+    {
+      path: '../../public/fonts/flame/Flame-Regular.woff',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/flame/Flame-Bold.woff',
+      weight: '700'
+    },
+    {
+      path: '../../public/fonts/flame/Flame-Condensed.otf',
+      weight: '900'
+    }
+  ],
+  variable: '--font-flame'
+})
 
 
 
@@ -15,8 +37,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR" className={`${flame.variable} font-sans`}>
+      <body>{children}</body>
     </html>
   )
 }
