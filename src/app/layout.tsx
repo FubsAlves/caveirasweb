@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import './globals.css'
+import '../styles/globals.css'
 
 const flame = localFont({
   src: [
@@ -38,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
-      <body>{children}</body>
+      <body className='w-screen h-screen'>{children}</body>
     </html>
   )
 }

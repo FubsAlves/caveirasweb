@@ -16,6 +16,13 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-flame)']
       },
+      colors: {
+        'caveiras': '#502314',
+        'caveirito': '#B71105',
+        'chickens': '#f07100',
+        'secrets': '#5A5A5A',
+        
+      }
     },
   },
   plugins: [],
