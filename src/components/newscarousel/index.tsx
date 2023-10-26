@@ -1,38 +1,34 @@
 "use client";
 import Image from 'next/image';
+import Carousel from 'react-elastic-carousel';
 
 
 
 
+const breakPointsList = [
+  
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 1, itemsToScroll: 2 },
+  { width: 768, itemsToShow: 2 },
+  { width: 1200, itemsToShow: 3 }
+];
 
 
 export default function NewsCarousel(newsData: any) {
   return (
-    <h1>Implementar Carousel</h1>
+    <ReactElasticCarousel isRTL={true} breakPoints={breakPointsList}>
+      <div>
+         1
+      </div>
+      <div>
+        2
+      </div>
+      <div>
+        3
+      </div>
+    </ReactElasticCarousel>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
