@@ -1,8 +1,6 @@
 "use client";
 import Image from 'next/image';
-import Carousel from 'react-elastic-carousel';
-
-
+import ReactElasticCarousel from 'react-elastic-carousel';
 
 
 const breakPointsList = [
@@ -16,17 +14,7 @@ const breakPointsList = [
 
 export default function NewsCarousel(newsData: any) {
   return (
-    <ReactElasticCarousel isRTL={true} breakPoints={breakPointsList}>
-      <div>
-         1
-      </div>
-      <div>
-        2
-      </div>
-      <div>
-        3
-      </div>
-    </ReactElasticCarousel>
+    <></>
   )
 }
 
