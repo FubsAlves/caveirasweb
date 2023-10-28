@@ -1,7 +1,5 @@
 "use client";
 import Image from 'next/image';
-import ReactElasticCarousel from 'react-elastic-carousel';
-
 
 const breakPointsList = [
   
