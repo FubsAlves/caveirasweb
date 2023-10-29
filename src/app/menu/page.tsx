@@ -1,5 +1,7 @@
+import CategoryCard from "@/components/category/categorycard";
+
 export default function Menu() {
     return(
-        <div>Aqui estou no Menu</div>
+        <CategoryCard/>
     )
 }
