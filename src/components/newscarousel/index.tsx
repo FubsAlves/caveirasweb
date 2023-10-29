@@ -16,15 +16,7 @@ export default function NewsCarousel(newsData: any) {
   )
 }
 
-
-
-
-
-
 // PARA SER IMPLEMENTADO EM ÚLTIMO CASO
-
-
-
 
 /* import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css'; */
