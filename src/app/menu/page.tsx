@@ -1,7 +1,9 @@
-import CategoryCard from "@/components/category/categorycard";
+import Category from "@/components/category";
+
+
 
 export default function Menu() {
     return(
-        <CategoryCard/>
+        <Category/>
     )
 }

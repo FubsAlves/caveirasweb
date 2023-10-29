@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import '../styles/globals.scss'
 import Header from '@/components/header'
 import { ApolloWrapper } from "../lib/apollo-provider";
+import Footer from '@/components/footer';
 
 const flame = localFont({
   src: [
@@ -45,6 +46,7 @@ export default function RootLayout({
         <ApolloWrapper>
           {children}
         </ApolloWrapper>
+        <Footer/>
       </body>
     </html>
   )
