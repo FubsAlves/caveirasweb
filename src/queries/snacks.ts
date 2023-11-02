@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const GET_SNACKS = gql`
-    query getSnacks ($params: String!) {
-        snacks (where: { category: { name : $params } }) {
+    query getSnacks ($selectedCategory: String!) {
+        snacks (where: { category: { name : $selectedCategory } }) {
             id
             name
             isNew
