@@ -10,7 +10,7 @@ export default function MenuList({params} : any) {
     
     return (
         <div>
-            <h1 onClick={() => {console.log(data)}}>cLIQUE</h1>
+            {/* <h1 onClick={() => {console.log(data)}}>cLIQUE</h1> */}
         </div>
     );
 }
