@@ -1,9 +1,11 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import '../styles/globals.scss'
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import '@mantine/carousel/styles.css';
+import '../styles/globals.scss';
 import Header from '@/components/header'
 import { ApolloWrapper } from "../lib/apollo-provider";
 import Footer from '@/components/footer';
+import { MantineProvider } from '@mantine/core';
 
 const flame = localFont({
   src: [
@@ -44,7 +46,9 @@ export default function RootLayout({
       <body>
         <Header/>
         <ApolloWrapper>
-          {children}
+          <MantineProvider>
+            {children}
+          </MantineProvider>
         </ApolloWrapper>
         <Footer/>
       </body>
