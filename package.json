@@ -11,6 +11,8 @@
   "dependencies": {
     "@apollo/client": "^3.8.0-rc.2",
     "@apollo/experimental-nextjs-app-support": "^0.4.3",
+    "@lottiefiles/lottie-player": "^2.0.2",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@mantine/carousel": "^7.4.1",
     "@mantine/core": "^7.4.1",
     "@mantine/hooks": "^7.4.1",
