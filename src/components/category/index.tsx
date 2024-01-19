@@ -1,20 +1,12 @@
 "use client";
 
-import {  useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
+import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import CategoryCard from "./categorycard";
 import GET_CATEGORIES from "@/queries/categories";
 
 export default function Category() {
     
-    const { data, error } = useSuspenseQuery(GET_CATEGORIES, {
-        
-    });
-
-
-    if (error) return <div>Failed to load</div>
-    if (!data) return <div>Loading...</div>
-
-
+    const { data, error } = useSuspenseQuery(GET_CATEGORIES);
 
     return (
         
