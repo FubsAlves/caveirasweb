@@ -3,14 +3,11 @@
 import {  useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import CategoryCard from "./categorycard";
 import GET_CATEGORIES from "@/queries/categories";
-import Loading from "../loading";
-import { useEffect } from "react";
-
 
 export default function Category() {
     
     const { data, error } = useSuspenseQuery(GET_CATEGORIES, {
-        errorPolicy: 'all',
+        
     });
 
 

@@ -1,16 +1,11 @@
-import { HttpLink } from "@apollo/client";
-import {
-  NextSSRInMemoryCache,
-  NextSSRApolloClient,
-} from "@apollo/experimental-nextjs-app-support/ssr";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
 
 export const { getClient } = registerApolloClient(() => {
-  return new NextSSRApolloClient({
-    ssrMode: true,
-    cache: new NextSSRInMemoryCache(),
+  return new ApolloClient({
+    cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: process.env.HYGRAPH_API,
-    }),
-  });
-});
+      uri: "https://api-sa-east-1.hygraph.com/v2/cln6xaao9co9101uodg1b1uz4/master"
+    })
+  })
+})

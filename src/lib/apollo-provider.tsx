@@ -10,7 +10,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-      uri: process.env.HYGRAPH_API,
+      uri: "https://api-sa-east-1.hygraph.com/v2/cln6xaao9co9101uodg1b1uz4/master"
   });
 
   return new NextSSRApolloClient({
@@ -28,7 +28,8 @@ function makeClient() {
   });
 }
 
-export function ApolloWrapper({ children }: React.PropsWithChildren) {
+export function ApolloWrapper({ children } : any) {
+  
   return (
     <ApolloNextAppProvider makeClient={makeClient}>
       {children}

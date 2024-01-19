@@ -8,6 +8,8 @@ import { Suspense } from "react";
 
 export default function Menu() {
     return(
-        <Category/>    
+        <Suspense fallback={<Loading/>}>
+            <Category/>  
+        </Suspense>  
     )
 }

@@ -44,13 +44,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
       <body>
-        <Header/>
         <ApolloWrapper>
           <MantineProvider>
+            <Header/>
             {children}
+            <Footer/>
           </MantineProvider>
         </ApolloWrapper>
-        <Footer/>
       </body>
     </html>
   )
