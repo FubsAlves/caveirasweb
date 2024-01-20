@@ -5,14 +5,39 @@ import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import { Carousel } from '@mantine/carousel';
 import Image from "next/image";
 import { Player } from '@lottiefiles/react-lottie-player';
-import { Suspense, useEffect, useRef } from "react";
+import { Suspense, useRef } from "react";
 import Loading from "@/components/loading";
+import { ApolloError } from "@apollo/client";
+
+
+interface DataProps {
+    snacks : {
+        id: string;
+        name: string;
+        logoSrc: {
+            url: string;
+        },
+        secondaryLogoSrc: {
+            url: string;
+        }
+        imageSrc: {
+            url: string;
+        }
+        description: string,
+        price: Number;
+    }
+}
+
+interface QueryProps {
+    snacks: DataProps[];
+    error: ApolloError;
+}
 
 
 export default function MenuList({params} : any) {
     
     const selectedCategory = params.menulist;
-    const { error, data } : any = useSuspenseQuery(GET_SNACKS, {variables: {selectedCategory}});
+    const { error, data } = useSuspenseQuery<QueryProps>(GET_SNACKS, {variables: {selectedCategory}});
     const animation = useRef(null);
 
     
