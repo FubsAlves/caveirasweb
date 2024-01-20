@@ -17,6 +17,7 @@
     "@mantine/core": "^7.4.2",
     "@mantine/hooks": "^7.4.2",
     "embla-carousel-react": "^7.1.0",
+    "framer-motion": "^10.18.0",
     "graphql": "^16.8.1",
     "next": "14.1.0",
     "react": "^18",

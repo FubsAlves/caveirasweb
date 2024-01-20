@@ -10,7 +10,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-      uri: "https://api-sa-east-1.hygraph.com/v2/cln6xaao9co9101uodg1b1uz4/master"
+      uri: process.env.NEXT_PUBLIC_HYGRAPH_API,
   });
 
   return new NextSSRApolloClient({
