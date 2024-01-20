@@ -3,10 +3,27 @@
 import { useSuspenseQuery } from "@apollo/experimental-nextjs-app-support/ssr";
 import CategoryCard from "./categorycard";
 import GET_CATEGORIES from "@/queries/categories";
+import { ApolloError } from "@apollo/client";
+
+
+interface DataProps {
+    categories : {
+        id: string;
+        name: string;
+        snackImage: {
+            url: string;
+        }
+    }
+}
+
+interface QueryProps {
+    categories: DataProps[];
+    error: ApolloError;
+}
 
 export default function Category() {
     
-    const { data, error } = useSuspenseQuery(GET_CATEGORIES);
+    const { data, error } = useSuspenseQuery<QueryProps>(GET_CATEGORIES);
 
     return (
         
