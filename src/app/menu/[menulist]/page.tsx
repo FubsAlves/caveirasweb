@@ -30,14 +30,14 @@ interface DataProps {
 
 interface QueryProps {
     snacks: DataProps[];
-    error: ApolloError;
+    error: ApolloError | undefined;
 }
 
 
 export default function MenuList({params} : any) {
     
     const selectedCategory = params.menulist;
-    const { error, data } = useSuspenseQuery<QueryProps>(GET_SNACKS, {variables: {selectedCategory}});
+    const { error, data } = useSuspenseQuery<QueryProps>(GET_SNACKS, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
 
     
@@ -58,7 +58,7 @@ export default function MenuList({params} : any) {
                                 <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} width={300} height={300} alt={"Image for " + snack.name}/>
                             </div>
                             <div className="flex w-[75%] justify-center items-center">
-                                <p className="text-[#502314] text-lg my-2 text-center">{snack.description}</p>
+                                <p className="text-[#502314] text-lg my-2 text-center">{snack.description}Inclui um sache de ketchup.</p>
                             </div>
                             <div className="flex w-2/4 justify-center">
                                 <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>

@@ -18,7 +18,7 @@ interface DataProps {
 
 interface QueryProps {
     categories: DataProps[];
-    error: ApolloError;
+    error: ApolloError | undefined;
 }
 
 export default function Category() {
