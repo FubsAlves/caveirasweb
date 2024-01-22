@@ -8,6 +8,8 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { Suspense, useRef } from "react";
 import Loading from "@/components/loading";
 import { ApolloError } from "@apollo/client";
+import GET_NEWESTSNACKS from "@/queries/newestsnacks";
+import { usePathname } from "next/navigation";
 
 
 interface DataProps {
@@ -36,10 +38,13 @@ interface QueryProps {
 
 export default function MenuList({params} : any) {
     
-    const selectedCategory = params.menulist;
-    const { error, data } = useSuspenseQuery<QueryProps>(GET_SNACKS, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
-    const animation = useRef(null);
 
+    const selectedCategory = params.menulist;
+    const pathname = usePathname();
+    const QUERY = pathname === '/menu/Lan%C3%A7amentos' ? GET_NEWESTSNACKS : GET_SNACKS; 
+    const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
+    const animation = useRef(null);
+    
     
     return (
         <Suspense fallback={<Loading/>}>
