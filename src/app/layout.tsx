@@ -41,6 +41,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
       <body>
