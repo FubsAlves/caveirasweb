@@ -25,11 +25,15 @@ export default function Home() {
     <>
 
       {/* <NewsCarousel newsData={data}/> */}
-      <div className='w-[95vw] h-[35vh] mx-auto my-2 bg-slate-700'>
+      <div className='w-[100vw] h-[35vh] bg-slate-700'>
 
       </div>
 
-      <div className='w-[95vw] h-[35vh] mx-auto my-2 bg-cyan-400'>
+      <div className='w-[100vw] h-[35vh] bg-cyan-400'>
+        
+      </div>
+
+      <div className='w-[100vw] h-[35vh] bg-green-500'>
         
       </div>
 

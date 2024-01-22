@@ -60,7 +60,7 @@ export default function MenuList({params} : any) {
                             <div className="flex text-2xl font-semibold text-[#502314]">{snack.name}</div>
                             <div className="flex w-3/4 justify-center">
                                 {snack.isNew ? <Player src="/animation/newSnack.json" style={{position: "absolute", top: '28%', left: '8%', width: 55, height: 55 }} loop autoplay ref={animation}/> : ""}
-                                <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} width={300} height={300} alt={"Image for " + snack.name}/>
+                                <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={300} height={300} alt={"Image for " + snack.name}/>
                             </div>
                             <div className="flex w-[75%] justify-center items-center">
                                 <p className="text-[#502314] text-lg my-2 text-center leading-none">{snack.description} Inclui um sache de ketchup.</p>
