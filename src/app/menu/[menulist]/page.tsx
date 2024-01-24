@@ -63,7 +63,7 @@ export default function MenuList({params} : any) {
                                 <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={300} height={300} alt={"Image for " + snack.name}/>
                             </div>
                             <div className="flex w-[75%] justify-center items-center">
-                                <p className="text-[#502314] text-lg my-2 text-center leading-none">{snack.description} Inclui um sache de ketchup.</p>
+                                <p className="text-[#502314] text-lg italic my-2 text-center leading-none">{snack.description}</p>
                             </div>
                             <div className="flex w-2/4 justify-center">
                                 <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>
