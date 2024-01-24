@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '@mantine/carousel/styles.css';
+
 import '../styles/globals.scss';
+import '@mantine/core/styles.css';
 import Header from '@/components/header'
 import { ApolloWrapper } from "../lib/apollo-provider";
 import Footer from '@/components/footer';
@@ -44,7 +46,7 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
-      <body>
+      <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider>
             <Header/>

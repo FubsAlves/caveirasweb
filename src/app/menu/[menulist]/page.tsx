@@ -11,6 +11,9 @@ import { ApolloError } from "@apollo/client";
 import GET_NEWESTSNACKS from "@/queries/newestsnacks";
 import { usePathname } from "next/navigation";
 
+import { ActionIcon, Button } from '@mantine/core';
+import { IconAdjustments } from '@tabler/icons-react';
+
 
 interface DataProps {
     snacks : {
@@ -48,7 +51,7 @@ export default function MenuList({params} : any) {
     
     return (
         <Suspense fallback={<Loading/>}>
-            <div className="h-[100vh] bg-white">
+            <div className="h-auto mb-28 bg-white">
                 <Carousel withIndicators withControls height="100%" style={{ flex: 1 }}>
                     {data.snacks.map((snack: any) => {
                         return (
@@ -69,7 +72,7 @@ export default function MenuList({params} : any) {
                                 <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>
                             </div>
                             <div className="flex w-2/4 justify-center">
-                                <button type="button" className="">Adicionar ao Carrinho</button>
+                                <Button color="red" variant="filled" radius="md">Adicionar</Button>
                             </div>
                     </Carousel.Slide>
                         )
