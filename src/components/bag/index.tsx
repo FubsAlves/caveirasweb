@@ -1,6 +1,6 @@
 "use client"
 
-import { Modal, Transition } from '@mantine/core';
+import { Button, Modal, Transition } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ActionIcon } from '@mantine/core';
 import { IconPaperBag } from '@tabler/icons-react';
@@ -41,6 +41,7 @@ export default function Bag ({opened} : BagProps) {
                         return (
                             <div key={item.id}>
                                 <div>{item.name}{item.price}{item.quantity}</div>
+                                <div><Button variant='filled' color='green' onClick={() => {bagItems.increaseQuantity(item.id)}}>+</Button><Button variant='filled' color='red' onClick={() => {bagItems.decreaseQuantity(item.id)}}>-</Button><Button variant='filled' color='black' onClick={() => {bagItems.removeItemFromBag(item.id)}}>X</Button></div>
                             </div>
                         )
                     })}

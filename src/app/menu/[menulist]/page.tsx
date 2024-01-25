@@ -46,7 +46,7 @@ export default function MenuList({params} : any) {
     const QUERY = pathname === '/menu/Lan%C3%A7amentos' ? GET_NEWESTSNACKS : GET_SNACKS; 
     const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
-    const addItem = useBagStore(state => state.addToBag);
+    const addItem = useBagStore(state => state.addItemToBag);
     
     
     return (
@@ -77,7 +77,6 @@ export default function MenuList({params} : any) {
                                         id: snack.id,
                                         name: snack.name,
                                         price: snack.price,
-                                        quantity: 1,
                                         imageSrc: {
                                             url: snack.imageSrc.url,
                                         }
