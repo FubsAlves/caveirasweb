@@ -10,9 +10,7 @@ import Loading from "@/components/loading";
 import { ApolloError } from "@apollo/client";
 import GET_NEWESTSNACKS from "@/queries/newestsnacks";
 import { usePathname } from "next/navigation";
-
-import { ActionIcon, Button } from '@mantine/core';
-import { IconAdjustments } from '@tabler/icons-react';
+import { Button } from '@mantine/core';
 
 
 interface DataProps {
