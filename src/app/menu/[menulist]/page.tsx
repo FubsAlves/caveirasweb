@@ -11,6 +11,7 @@ import { ApolloError } from "@apollo/client";
 import GET_NEWESTSNACKS from "@/queries/newestsnacks";
 import { usePathname } from "next/navigation";
 import { Button } from '@mantine/core';
+import { useBagStore } from "@/store/BagStore";
 
 
 interface DataProps {
@@ -45,6 +46,7 @@ export default function MenuList({params} : any) {
     const QUERY = pathname === '/menu/Lan%C3%A7amentos' ? GET_NEWESTSNACKS : GET_SNACKS; 
     const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
+    const addItem = useBagStore(state => state.addToBag);
     
     
     return (
@@ -70,7 +72,19 @@ export default function MenuList({params} : any) {
                                 <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>
                             </div>
                             <div className="flex w-2/4 justify-center">
-                                <Button color="red" variant="filled" radius="md">Adicionar</Button>
+                                <Button color="red" variant="filled" radius="md" onClick={() => {
+                                    addItem({
+                                        id: snack.id,
+                                        name: snack.name,
+                                        price: snack.price,
+                                        quantity: 1,
+                                        imageSrc: {
+                                            url: snack.imageSrc.url,
+                                        }
+                                        
+
+                                    })
+                                }}>Adicionar</Button>
                             </div>
                     </Carousel.Slide>
                         )

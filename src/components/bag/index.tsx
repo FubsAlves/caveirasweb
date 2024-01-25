@@ -37,7 +37,13 @@ export default function Bag ({opened} : BagProps) {
             }
             </Transition>
             <Modal opened={openedBag} onClose={close} title="Informações do Pedido">
-                    {/* Modal content */}
+                    {bagItems.bag.map((item) => {
+                        return (
+                            <div key={item.id}>
+                                <div>{item.name}{item.price}{item.quantity}</div>
+                            </div>
+                        )
+                    })}
             </Modal>
         </>
             

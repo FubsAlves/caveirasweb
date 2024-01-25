@@ -18,7 +18,7 @@ type BagStore = {
     bag: Item[],
     addToBag: (item: Item) => void;
     removeFromBag: (id: string) => void; 
-
+   /*  addItemQuantity: (id: string) => void; */
 }
 
 export const useBagStore = create<BagStore>((set) => {
@@ -27,6 +27,9 @@ export const useBagStore = create<BagStore>((set) => {
         addToBag: (item) => set((state) => ({bag: [...state.bag, item]})),
         removeFromBag: (id) => {
             set((state) => ({bag: state.bag.filter((item) => item.id !== id)}))
-        }
+        },
+        /* addItemQuantity: (id) => {
+            set((state) => ({bag}))
+        } */
     }
 })
