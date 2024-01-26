@@ -3,7 +3,7 @@
 import { Button, Modal, Transition, ScrollArea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ActionIcon } from '@mantine/core';
-import { IconPaperBag } from '@tabler/icons-react';
+import { IconMinus, IconPaperBag, IconPlus, IconTrash } from '@tabler/icons-react';
 import { useBagStore } from '@/store/BagStore';
 import Total from '../Total';
 import Image from 'next/image';
@@ -44,20 +44,36 @@ export default function Bag ({opened} : BagProps) {
             </div>
             }
             </Transition>
-            <Modal opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize}>
+            <Modal zIndex={1002} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize}>
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (
                             <div className='flex w-full h-28'>
-                                <div className='grid grid-cols-1 w-[60%] text-caveiras'>
+                                <div className='grid grid-cols-1 w-[70%] text-caveiras'>
                                     <h4 className='font-bold my-2'>{item.name}</h4>
                                     <h5 className='font-semibold'>{formatter.format(item.price * item.quantity)}</h5>
                                 </div>
-                                <div className='grid grid-cols-1 w-[40%]'>
-                                    <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: 70, height: 35}} width={1080} height={800}/>
+                                <div className='grid grid-cols-1 w-[30%]'>
+                                    <div className='w-5 h-5 relative text-white bg-chickens rounded-full text-sm text-center top-5 left-[70%]'>{item.quantity}</div>
+                                    <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: 55, height: 60}} width={1080} height={800}/>
                                     <div className='place-self-center'>
-                                        <Button variant='filled' color='green' size='xs'>+</Button>
-                                        <Button variant='filled' color='red' size='xs'>-</Button>
+                                        {item.quantity > 1 ? 
+                                        <ActionIcon className='mx-1' variant="outline" color="red" size="md" radius="xl" aria-label="Decrease" onClick={() => {
+                                            bagItems.decreaseQuantity(item.id);
+                                        }}>
+                                            <IconMinus />
+                                        </ActionIcon> :
+                                        <ActionIcon className='mx-1' variant="outline" color="gray" size="md" radius="xl" aria-label="Remove" onClick={() => {
+                                            bagItems.removeItemFromBag(item.id);
+                                        }}>
+                                            <IconTrash />
+                                        </ActionIcon>
+                                        }
+                                        <ActionIcon className='mx-1' variant="outline" color="red" size="md" radius="xl" aria-label="Increase" onClick={() => {
+                                            bagItems.increaseQuantity(item.id);
+                                        }}>
+                                            <IconPlus />
+                                        </ActionIcon>
                                     </div>
                                 </div>
                             </div> 
