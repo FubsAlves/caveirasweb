@@ -51,7 +51,7 @@ export default function MenuList({params} : any) {
     
     return (
         <Suspense fallback={<Loading/>}>
-            <div className="h-auto mb-28 bg-white">
+            <div className="h-auto md:h-[110vh] mb-28 bg-white">
                 <Carousel withIndicators withControls height="100%" style={{ flex: 1 }}>
                     {data.snacks.map((snack: any) => {
                         return (

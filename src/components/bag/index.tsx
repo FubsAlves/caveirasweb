@@ -5,6 +5,8 @@ import { useDisclosure } from '@mantine/hooks';
 import { ActionIcon } from '@mantine/core';
 import { IconPaperBag } from '@tabler/icons-react';
 import { useBagStore } from '@/store/BagStore';
+import { useEffect } from 'react';
+import Total from '../Total';
 
 interface BagProps {
     opened : boolean;
@@ -14,7 +16,7 @@ export default function Bag ({opened} : BagProps) {
     
     const [openedBag, { open, close }] = useDisclosure(false);
     const bagItems = useBagStore();
-
+    
     return (
         <>
             <Transition
@@ -32,7 +34,7 @@ export default function Bag ({opened} : BagProps) {
                     </ActionIcon>
                 </div>
                 <h3 className='w-[25%] text-center'>Ver pedido</h3>
-                <h3 className='w-[25%] text-center'>R$ 2502,67</h3>
+                <h3 className='w-[25%] text-center'><Total/></h3>
             </div>
             }
             </Transition>
