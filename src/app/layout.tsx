@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import '@mantine/carousel/styles.css';
-
 import '../styles/globals.scss';
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 import Header from '@/components/header'
 import { ApolloWrapper } from "../lib/apollo-provider";
 import Footer from '@/components/footer';
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 
 const flame = localFont({
   src: [
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider>
+            <Notifications position='top-center' zIndex={1000}/>
             <Header/>
             {children}
             <Footer/>
