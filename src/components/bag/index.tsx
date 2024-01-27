@@ -41,7 +41,7 @@ export default function Bag ({opened} : BagProps) {
                         <IconPaperBag stroke={1.5} />
                     </ActionIcon>
                 </div>
-                <h3 className='w-[25%] text-center'>Ver pedido</h3>
+                <h3 className='w-[35%] text-center'>{bagItems.bag.length === 0 ? 'Sacola vazia' : 'Ver pedido'}</h3>
                 <h3 className='w-[25%] text-center'><Total/></h3>
             </div>
             }
@@ -60,7 +60,7 @@ export default function Bag ({opened} : BagProps) {
                                     <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: 55, height: 60}} width={1080} height={800}/>
                                     <div className='place-self-center'>
                                         {item.quantity > 1 ? 
-                                        <ActionIcon className='mx-1' variant="outline" color="red" size="md" radius="xl" aria-label="Decrease" onClick={() => {
+                                        <ActionIcon className='mx-1' variant="outline" color="#f07100" size="md" radius="xl" aria-label="Decrease" onClick={() => {
                                             bagItems.decreaseQuantity(item.id);
                                         }}>
                                             <IconMinus />
@@ -76,7 +76,7 @@ export default function Bag ({opened} : BagProps) {
                                             <IconTrash />
                                         </ActionIcon>
                                         }
-                                        <ActionIcon className='mx-1' variant="outline" color="red" size="md" radius="xl" aria-label="Increase" onClick={() => {
+                                        <ActionIcon className='mx-1' variant="outline" color="#f07100" size="md" radius="xl" aria-label="Increase" onClick={() => {
                                             bagItems.increaseQuantity(item.id);
                                         }}>
                                             <IconPlus />

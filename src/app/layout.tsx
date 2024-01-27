@@ -50,7 +50,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${flame.variable} font-sans`}>
       <body className='bg-white'>
         <ApolloWrapper>
-          <MantineProvider>
+          <MantineProvider theme={{fontFamily: flame.style.fontFamily}}>
             <Notifications position='top-center' zIndex={1005}/>
             <Header/>
             {children}
