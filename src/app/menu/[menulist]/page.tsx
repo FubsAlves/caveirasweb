@@ -88,7 +88,7 @@ export default function MenuList({params} : any) {
                                         notifications.show({
                                             color: "green",
                                             title: 'Item adicionado!',
-                                            message: `${snack.name} foi adicionado a sacola!`
+                                            message: `${snack.name} foi adicionado(a) a sacola!`
                                         })
                                     }}>Adicionar</Button>
                                 </div>

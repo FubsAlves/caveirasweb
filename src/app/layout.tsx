@@ -37,6 +37,7 @@ const flame = localFont({
 export const metadata: Metadata = {
   title: 'Caveiras Burguer',
   description: 'Peça Já um CB',
+  
 }
 
 export default function RootLayout({
@@ -50,7 +51,7 @@ export default function RootLayout({
       <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider>
-            <Notifications position='top-center' zIndex={1000}/>
+            <Notifications position='top-center' zIndex={1005}/>
             <Header/>
             {children}
             <Footer/>
