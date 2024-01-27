@@ -8,6 +8,7 @@ import { useBagStore } from '@/store/BagStore';
 import Total from '../Total';
 import Image from 'next/image';
 import { notifications } from '@mantine/notifications';
+import WhatsAppOrder from '../whatsapporder';
 
 interface BagProps {
     opened : boolean;
@@ -87,6 +88,7 @@ export default function Bag ({opened} : BagProps) {
                             )
                         })}
                     </div>
+                    <WhatsAppOrder/>
             </Modal>
         </>
             
