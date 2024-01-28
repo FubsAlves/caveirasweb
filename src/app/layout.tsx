@@ -9,6 +9,7 @@ import { ApolloWrapper } from "../lib/apollo-provider";
 import Footer from '@/components/footer';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import { Analytics } from '@vercel/analytics/react';
 
 const flame = localFont({
   src: [
@@ -54,6 +55,7 @@ export default function RootLayout({
             <Notifications position='top-center' zIndex={1005}/>
             <Header/>
             {children}
+            <Analytics/>
             <Footer/>
           </MantineProvider>
         </ApolloWrapper>
