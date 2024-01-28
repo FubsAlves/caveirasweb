@@ -10,6 +10,7 @@ import Footer from '@/components/footer';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const flame = localFont({
   src: [
@@ -56,6 +57,7 @@ export default function RootLayout({
             <Header/>
             {children}
             <Analytics/>
+            <SpeedInsights/>
             <Footer/>
           </MantineProvider>
         </ApolloWrapper>
