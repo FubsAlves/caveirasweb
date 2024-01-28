@@ -53,12 +53,16 @@ export default function Bag ({opened} : BagProps) {
                             <div className='flex w-full h-36' key={item.id}>
                                 <div className='grid grid-cols-1 w-[70%] text-caveiras'>
                                     <h4 className='font-bold my-2'>{item.name}</h4>
+                                    {/* 
+// @ts-ignore */}
                                     <h5 className='font-semibold'>{formatter.format(item.price * item.quantity)}</h5>
                                 </div>
                                 <div className='grid grid-cols-1 w-[30%]'>
                                     <div className='w-5 h-5 relative text-white bg-chickens rounded-full text-sm text-center top-7 left-[65%]'>{item.quantity}</div>
                                     <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: 55, height: 60}} width={1080} height={800}/>
                                     <div className='place-self-center'>
+                                        {/* 
+// @ts-ignore */}
                                         {item.quantity > 1 ? 
                                         <ActionIcon className='mx-1' variant="outline" color="#f07100" size="md" radius="xl" aria-label="Decrease" onClick={() => {
                                             bagItems.decreaseQuantity(item.id);

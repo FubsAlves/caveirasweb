@@ -6,7 +6,7 @@ import { create } from "zustand";
     imageSrc: {
         url: string;
     }
-    quantity?: number;
+    quantity?: number | undefined | null;
     price: number;
     extra?: [{
         name: string;
