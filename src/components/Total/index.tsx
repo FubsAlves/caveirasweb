@@ -1,7 +1,6 @@
 "use client";
 
 import { useBagStore } from "@/store/BagStore"
-import { useEffect } from "react";
 
 export default function Total() {
 
@@ -12,11 +11,6 @@ export default function Total() {
         style: "currency",
         currency: "BRL",
     })
-
-
-    useEffect(() => {
-        console.log(items);
-    }, [items])
 
     return (
         <>

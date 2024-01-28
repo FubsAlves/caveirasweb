@@ -14,7 +14,7 @@ export default function WhatsAppOrder() {
     return (
         
             <div className="w-full flex justify-center mt-3">
-                <Button disabled={bagitems.length === 0 ? true : false} variant="filled" component="a" color="red" href={whatsAppOrder.replaceAll(",", "")}>Enviar para o WhatsApp</Button>
+                <Button disabled={bagitems.length === 0 ? true : false} variant="filled" component="a" color="#f07100" href={whatsAppOrder.replaceAll(",", "")}>Enviar para o WhatsApp</Button>
             </div>
             
        

@@ -2,18 +2,25 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Bag from "../bag";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useBagStatusStore } from "@/store/BagStatusStore";
 
 export default function Footer() {
    
     const pathname = usePathname(); 
-    const [openedBag, setOpenedBag] = useState(false);
+    const bagStatus = useBagStatusStore();
+    
+    useEffect(() => {
+        console.log(bagStatus.status)
+    }, [bagStatus.status])
+
+
     return (
         <>
-            <div className="w-full relative bottom-0 z-[1001]">
-                <Bag opened={openedBag}/>
-                <div className={pathname === '/menu/Chickens' ? "flex justify-center w-[100vw] h-12 bg-chickens" : "flex justify-center w-[100vw] h-12 bg-caveirito"}>
-                    <Image className="pt-2" src="/images/cb.png" style={{ width: "auto", height: "auto" }} width={60} height={60} alt="CB" onClick={() => {setOpenedBag(!openedBag)}} />
+            <div className="w-full sticky bottom-0 z-[1001]">
+                <Bag opened={bagStatus.status}/>
+                <div className={pathname === '/menu/Chickens' ? "flex justify-center w-[100vw] h-12 bg-chickens" : "flex justify-center w-[100vw] h-12 bg-caveirito"} onClick={() => {bagStatus.toogleShow()}}>
+                    <Image className="pt-2" src="/images/cb.png" style={{ width: "auto", height: "auto" }} width={60} height={60} alt="CB" />
                 </div>
             </div>
             

@@ -47,7 +47,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="pt-BR" className={`${flame.variable} font-sans`}>
+    <html lang="pt-BR">
       <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider theme={{fontFamily: flame.style.fontFamily}}>

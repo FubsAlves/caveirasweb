@@ -50,7 +50,7 @@ export default function Bag ({opened} : BagProps) {
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (
-                            <div className='flex w-full h-36'>
+                            <div className='flex w-full h-36' key={item.id}>
                                 <div className='grid grid-cols-1 w-[70%] text-caveiras'>
                                     <h4 className='font-bold my-2'>{item.name}</h4>
                                     <h5 className='font-semibold'>{formatter.format(item.price * item.quantity)}</h5>
@@ -87,6 +87,11 @@ export default function Bag ({opened} : BagProps) {
                             
                             )
                         })}
+                    </div>
+                    <div className='flex flex-col text-caveiras font-semibold'>
+                        <h3>Total:</h3>
+                        <h4><Total/> + Taxas de Entrega</h4>
+                        <h5 className='italic text-xs mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
                     </div>
                     <WhatsAppOrder/>
             </Modal>

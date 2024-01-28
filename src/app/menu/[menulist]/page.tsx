@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import { Button } from '@mantine/core';
 import { useBagStore } from "@/store/BagStore";
 import { notifications } from '@mantine/notifications';
+import { useBagStatusStore } from "@/store/BagStatusStore";
 
 
 interface DataProps {
@@ -48,6 +49,7 @@ export default function MenuList({params} : any) {
     const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
+    const toogleBag = useBagStatusStore(state => state.turntrue);
     
     
     
@@ -67,14 +69,14 @@ export default function MenuList({params} : any) {
                                     {snack.isNew ? <Player src="/animation/newSnack.json" style={{position: "absolute", top: '28%', left: '8%', width: 55, height: 55 }} loop autoplay ref={animation}/> : ""}
                                     <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={300} height={300} alt={"Image for " + snack.name}/>
                                 </div>
-                                <div className="flex w-[75%] justify-center items-center">
-                                    <p className="text-[#502314] text-lg italic my-2 text-center leading-none">{snack.description}</p>
+                                <div className="flex w-[75%] my-4 justify-center items-center">
+                                    <p className="text-[#502314] font-sans text-md italic my-2 text-center leading-none">{snack.description}</p>
                                 </div>
-                                <div className="flex w-2/4 justify-center">
+                                <div className="flex w-2/4 my-4 justify-center">
                                     <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>
                                 </div>
-                                <div className="flex w-2/4 justify-center">
-                                    <Button color="red" variant="filled" radius="md" onClick={() => {
+                                <div className="flex w-2/4  my-4 justify-center">
+                                    <Button color={pathname === '/menu/Chickens' ? '#f07100' : '#B71105'} variant="filled" radius="md" onClick={() => {
                                         addItem({
                                             id: snack.id,
                                             name: snack.name,
@@ -90,6 +92,8 @@ export default function MenuList({params} : any) {
                                             title: 'Item adicionado!',
                                             message: `${snack.name} foi adicionado(a) a sacola!`
                                         })
+
+                                        toogleBag();
                                     }}>Adicionar</Button>
                                 </div>
                         </Carousel.Slide>
