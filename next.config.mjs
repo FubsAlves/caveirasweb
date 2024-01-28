@@ -36,8 +36,6 @@ const nextConfig = {
 
 };
 
-export default nextConfig;
-
 module.exports = {
     typescript: {
       // !! WARN !!
@@ -46,4 +44,5 @@ module.exports = {
       // !! WARN !!
       ignoreBuildErrors: true,
     },
-  }
+    nextConfig,
+}
