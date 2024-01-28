@@ -39,6 +39,8 @@ const flame = localFont({
 export const metadata: Metadata = {
   title: 'Caveiras Burguer',
   description: 'Peça Já um CB',
+
+  
   
 }
 
@@ -50,6 +52,14 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
+      <head>
+      <link
+        rel="icon"
+        href="/splash.png"
+        type="image/png"
+        sizes="any"
+        />
+      </head>
       <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider theme={{fontFamily: flame.style.fontFamily}}>
