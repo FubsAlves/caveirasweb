@@ -19,5 +19,7 @@ body {
   background:  rgb(var(--background-start-rgb));
   width: 100vw;
   min-height: 100vh;
+  flex: 1;
+  flex-direction: column;
   
 }

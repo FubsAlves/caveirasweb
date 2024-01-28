@@ -10,8 +10,11 @@ export default function Home() {
   
   return (
       <Suspense fallback={<Loading/>}>
-          <NewsCarousel/>
-          <News/>
+          <div className="w-full  md:min-h-[200vh]">
+            <NewsCarousel/>
+            <News/>
+          </div>
+          
       </Suspense>
   );
 }
