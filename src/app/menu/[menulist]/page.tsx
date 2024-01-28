@@ -56,7 +56,7 @@ export default function MenuList({params} : any) {
     return (
             <Suspense fallback={<Loading/>}>
                 <div className="h-auto md:h-[110vh] mb-7 bg-white">
-                    <Carousel withIndicators withControls height="100%" style={{ flex: 1 }}>
+                    <Carousel withControls height="100%" style={{ flex: 1 }}>
                         {data.snacks.map((snack: any) => {
                             return (
                             <Carousel.Slide className="flex flex-col justify-center items-center" key={snack.id}>
