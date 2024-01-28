@@ -11,6 +11,7 @@ import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const flame = localFont({
   src: [
@@ -66,6 +67,7 @@ export default function RootLayout({
             <Notifications position='top-center' zIndex={1005}/>
             <Header/>
             {children}
+            <GoogleAnalytics gaId="G-Z7268PL9YB" />
             <Analytics/>
             <SpeedInsights/>
             <Footer/>
