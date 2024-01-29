@@ -23,12 +23,12 @@ interface QueryProps {
 
 export default function Category() {
     
-    const { data, error } = useSuspenseQuery<QueryProps>(GET_CATEGORIES);
+    const { data, error } = useSuspenseQuery<QueryProps>(GET_CATEGORIES, {fetchPolicy: 'cache-and-network'});
 
     return (
         
             
-            <div className="flex flex-row flex-wrap w-[100vw] h-auto md:h-[140vh] justify-evenly mt-4 mb-16"> 
+            <div className="flex md:grid md:grid-cols-4 flex-row flex-wrap w-[100vw] h-auto md:h-[auto] md:min-h-[80vh] justify-evenly mt-4 mb-16"> 
                 {data.categories.map((category: any) => {
                     return <CategoryCard key={category.id} name={category.name} imageUrl={category.snackImage.url}/>
                 })}
