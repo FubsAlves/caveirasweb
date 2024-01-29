@@ -37,9 +37,10 @@ export default function Bag ({opened} : BagProps) {
             <div style={styles} className="flex flex-row items-center justify-around w-full h-14 bg-[#870018] hover:cursor-pointer text-white" onClick={open}>
             
                 <div className='w-[25%] flex justify-center items-end'>
-                    <ActionIcon variant="transparent" color="#ffffff" aria-label="BagInfo">
+                    {/* <ActionIcon variant="transparent" color="#ffffff" aria-label="BagInfo">
                         <IconPaperBag stroke={1.5} />
-                    </ActionIcon>
+                    </ActionIcon> */}
+                    <Image className='relative bottom-10 sm:bottom-10 md:bottom-10' src="/images/cb-bag.png" alt='CbBag' width={65} height={65}/>
                 </div>
                 <h3 className='w-[35%] text-center'>{bagItems.bag.length === 0 ? 'Sacola vazia' : 'Ver pedido'}</h3>
                 <h3 className='w-[25%] text-center'><Total/></h3>
@@ -95,7 +96,7 @@ export default function Bag ({opened} : BagProps) {
                     <div className='flex flex-col text-caveiras font-semibold'>
                         <h3>Total:</h3>
                         <h4><Total/> + Taxas de Entrega</h4>
-                        <h5 className='italic text-xs mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
+                        <h5 className='italic text-sm mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
                     </div>
                     <WhatsAppOrder/>
             </Modal>

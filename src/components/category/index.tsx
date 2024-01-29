@@ -28,7 +28,7 @@ export default function Category() {
     return (
         
             
-            <div className="flex flex-row flex-wrap w-[100vw] h-auto md:h-[140vh] justify-evenly my-20"> 
+            <div className="flex flex-row flex-wrap w-[100vw] h-auto md:h-[140vh] justify-evenly mt-4 mb-16"> 
                 {data.categories.map((category: any) => {
                     return <CategoryCard key={category.id} name={category.name} imageUrl={category.snackImage.url}/>
                 })}
