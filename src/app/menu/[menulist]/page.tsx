@@ -50,12 +50,15 @@ export default function MenuList({params} : any) {
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turntrue);
+
+
+
     
     
     
     return (
-            <Suspense fallback={<Loading/>}>
-                <div className="h-auto md:h-[110vh] mb-7 bg-white">
+        <Suspense fallback={<Loading/>}>
+            {data.snacks.length >= 1 ? <div className="h-auto md:h-[110vh] mb-7 bg-white">
                     <Carousel withControls height="100%" style={{ flex: 1 }}>
                         {data.snacks.map((snack: any) => {
                             return (
@@ -101,7 +104,7 @@ export default function MenuList({params} : any) {
                         })}
                         
                     </Carousel>
-            </div>
+            </div> : <div className="flex justify-center items-center min-h-[100vh] w-full"><h4 className="text-caveirito italic">Não há itens disponíveis.</h4></div> }
         </Suspense>
     );
 }
