@@ -48,6 +48,7 @@ export default function Bag ({opened} : BagProps) {
             }
             </Transition>
             <Modal zIndex={1002} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize}>
+                    
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (
@@ -99,6 +100,7 @@ export default function Bag ({opened} : BagProps) {
                         <h5 className='italic text-sm mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
                     </div>
                     <WhatsAppOrder/>
+                    
             </Modal>
         </>
             
