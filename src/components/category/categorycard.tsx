@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CategoryCard({name, imageUrl}: any) {
+interface DataProps {
+    name: string;
+    imageUrl: string;
+}
+
+export default function CategoryCard({name, imageUrl}: DataProps) {
 
     return (
         <Link className="md:w-[22vw] my-2 w-[48vw] h-[24vh]" href={`/menu/${name}`} prefetch={true}>
