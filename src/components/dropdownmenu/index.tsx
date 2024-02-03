@@ -17,7 +17,7 @@ export default function DropdownMenu() {
             </Menu.Target>
             <MenuDropdown>
                 <Menu.Label className={pathname === '/menu/Chickens' ? 'text-chickens' : 'text-caveirito'}>Menu</Menu.Label>
-                <Link href="/menu" prefetch={true} onClick={() => toggle()}>
+                <Link href="/" prefetch={true} onClick={() => toggle()}>
                     <Menu.Item color="#502314" leftSection={<IconHome style={{width: rem(14), height: rem(14)}}/>}>Início</Menu.Item>
                 </Link>
                 <Link href="/menu" prefetch={true} onClick={() => toggle()}>

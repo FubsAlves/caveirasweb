@@ -6,21 +6,17 @@ import { usePathname, useRouter } from "next/navigation";
 import DropdownMenu from "../dropdownmenu";
 import { ActionIcon } from "@mantine/core";
 import { IconChevronLeft } from "@tabler/icons-react";
-import { useEffect } from "react";
-
 
 export default function Header() {
     
    const pathname = usePathname();
    const router = useRouter();
-   useEffect(() => {
-        console.log(router);
-   }, [router])
+
   
     return (
         <>
             
-                <ActionIcon display={pathname === '/menu' ? 'none' : {}} className="absolute top-[6%]" variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
+                <ActionIcon display={pathname === '/menu' || '/' ? 'none' : {}} className="absolute top-[6%]" variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
                     <IconChevronLeft style={{width: 41  , height: 41}} stroke={1.5} />
                 </ActionIcon>
                 <div className={pathname === '/menu/Chickens' ? "flex flex-row w-screen h-[18vh] bg-chickens justify-center items-center text-white" : "flex flex-row w-screen h-[18vh] bg-caveirito justify-center items-center text-white"}>
