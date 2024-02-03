@@ -56,9 +56,9 @@ export default function RootLayout({
       <head>
       <link
         rel="icon"
-        href="/splash.png"
-        type="image/png"
-        sizes="any"
+        href="/splash.webp"
+        type="image/webp"
+        sizes="32x64"
         />
       </head>
       <body className='bg-white'>
