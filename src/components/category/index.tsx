@@ -23,7 +23,7 @@ interface QueryProps {
 
 export default function Category() {
     
-    const { data, error } = useSuspenseQuery<QueryProps>(GET_CATEGORIES, {fetchPolicy: 'cache-and-network'});
+    const { data, error } = useSuspenseQuery<QueryProps>(GET_CATEGORIES, {fetchPolicy: 'network-only'});
 
     return (
         
