@@ -20,7 +20,7 @@ export default function Header() {
                 </ActionIcon>
                 <div className={pathname === '/menu/Chickens' ? "flex flex-row w-screen h-[18vh] bg-chickens justify-center items-center text-white" : "flex flex-row w-screen h-[18vh] bg-caveirito justify-center items-center text-white"}>
                     <Link href="/menu" prefetch={true}>
-                        {pathname === '/menu/Chickens' ? <Image src="/images/chickens-logo.webp" alt="Logo Chickens" style={{ height: '100px', width: '100px' }} width={2000} height={2000} quality={100} priority /> : <Image src="/images/caveiras-logo.webp" alt="Logo Caveiras" style={{ height: '230px', width: '150px' }} width={2000} height={2000} quality={100} priority />}
+                        {pathname === '/menu/Chickens' ? <Image src="/images/chickens-logo.webp" alt="Logo Chickens" style={{ height: '100px', width: '100px' }} width={2000} height={2000} quality={100} priority /> : <Image src="/images/logo.png" alt="Logo Caveiras" style={{ height: '230px', width: '150px' }} width={2000} height={2000} quality={100} priority />}
                     </Link>
                     <div className="place-items-end">
                         <DropdownMenu/>    
