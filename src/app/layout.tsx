@@ -58,7 +58,7 @@ export default function RootLayout({
         rel="icon"
         href="/splash.png"
         type="image/png"
-        sizes="64x64"
+        sizes="32x32"
         />
       </head>
       <body className='bg-white'>

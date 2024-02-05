@@ -19,7 +19,7 @@ export default function Footer() {
         <>
             <div className="w-full sticky z-[1001]">
                 <Bag opened={bagStatus.status}/>
-                <div className={pathname === '/menu/Chickens' ? "flex justify-center w-[100vw] h-12 bg-chickens" : "flex justify-center w-[100vw] h-12 bg-caveirito"} onClick={() => {bagStatus.toogleShow()}}>
+                <div className={pathname === '/menu/Chickens' ? "flex justify-center w-full h-12 bg-chickens" : "flex justify-center w-full h-12 bg-caveirito"} onClick={() => {bagStatus.toogleShow()}}>
                     <Image className="pt-2" src="/images/cb.png" style={{ width: "auto", height: "auto" }} width={60} height={60} alt="CB" />
                 </div>
             </div>
