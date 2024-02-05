@@ -10,4 +10,4 @@ Apollo GraphQL\
 Mantine\
 Hygraph CMS\
 Zustand\
-Lottie\
+Lottie
