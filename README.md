@@ -4,10 +4,10 @@ Um aplicativo web destinado ao delivery Caveiras Burguer(Caraguatatuba) com a fi
 
 ## Tecnologias 
 
-React / NextJS
-Tailwind
-Apollo GraphQL
-Mantine
-Hygraph CMS
-Zustand
-Lottie
+React / NextJS\
+Tailwind\
+Apollo GraphQL\
+Mantine\
+Hygraph CMS\
+Zustand\
+Lottie\
