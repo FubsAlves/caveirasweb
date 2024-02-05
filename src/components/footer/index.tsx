@@ -10,11 +10,6 @@ export default function Footer() {
     const pathname = usePathname(); 
     const bagStatus = useBagStatusStore();
     
-    useEffect(() => {
-        console.log(bagStatus.status)
-    }, [bagStatus.status])
-
-
     return (
         <>
             <div className="w-full sticky z-[1001]">
