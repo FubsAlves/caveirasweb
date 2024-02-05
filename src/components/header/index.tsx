@@ -14,7 +14,6 @@ export default function Header() {
    
     return (
         <>
-            
                 <ActionIcon display={pathname !== '/' ? 'flex' : 'none'} className="absolute top-[6%]" variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
                     <IconChevronLeft style={{width: 41  , height: 41}} stroke={1.5} />
                 </ActionIcon>
