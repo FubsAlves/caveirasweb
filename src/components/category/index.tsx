@@ -27,7 +27,7 @@ export default function Category() {
 
     return (
         
-            <div className="flex md:grid md:grid-cols-4 flex-row flex-wrap w-[100vw] h-auto md:h-[auto] md:min-h-[80vh] justify-evenly md:content-center md:justify-items-center mt-4 mb-16"> 
+            <div className="flex md:grid md:grid-cols-4 flex-row flex-wrap w-full h-auto md:h-[auto] md:min-h-[80vh] justify-evenly md:content-center md:justify-items-center mt-4 mb-16"> 
                 {data.categories.map((category: any) => {
                     return <CategoryCard key={category.id} name={category.name} imageUrl={category.snackImage.url}/>
                 })}
