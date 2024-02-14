@@ -9,8 +9,6 @@ export default function WhatsAppOrder() {
         return `${item.quantity}x%20${item.name.replaceAll(" ", "%20")}%0A`
     })
     
-    console.log(whatsAppOrder);
-
     return (
         
             <div className="w-full flex justify-center mt-3">

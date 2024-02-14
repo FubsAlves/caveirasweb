@@ -37,9 +37,7 @@ export default function Bag ({opened} : BagProps) {
             <div style={styles} className="flex flex-row items-center justify-around w-full h-14 bg-[#870018] hover:cursor-pointer text-white" onClick={open}>
             
                 <div className='w-[25%] flex justify-center items-end'>
-                    {/* <ActionIcon variant="transparent" color="#ffffff" aria-label="BagInfo">
-                        <IconPaperBag stroke={1.5} />
-                    </ActionIcon> */}
+                    <div className='z-[5] w-5 h-5 relative text-white bg-caveirito rounded-full text-sm text-center top-[-117px] left-[18%] md:left-[5%]'>{bagItems.bag.length}</div>
                     <Image className='relative bottom-10 sm:bottom-10 md:bottom-10' src="/images/cb-bag.png" alt='CbBag' width={65} height={65}/>
                 </div>
                 <h3 className='w-[35%] text-center'>{bagItems.bag.length === 0 ? 'Sacola vazia' : 'Ver pedido'}</h3>
