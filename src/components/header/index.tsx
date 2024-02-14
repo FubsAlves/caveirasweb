@@ -14,10 +14,10 @@ export default function Header() {
    
     return (
         <>
-                <ActionIcon display={pathname !== '/' ? 'flex' : 'none'} className="absolute top-[6%]" variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
-                    <IconChevronLeft style={{width: 41  , height: 41}} stroke={1.5} />
-                </ActionIcon>
-                <div className={pathname === '/menu/Chickens' ? "flex flex-row w-full h-[18vh] bg-chickens justify-center items-center text-white" : `flex flex-row w-full ${pathname === '/' ? 'h-[30vh]' : 'h-[18vh]'} bg-caveirito justify-center items-center text-white`}>
+                <div className={pathname === '/menu/Chickens' ? "flex flex-row w-full h-[18vh] bg-chickens justify-center items-center text-white" : `flex flex-row w-full ${pathname === '/' ? 'h-[30vh]' : 'h-[18vh]'} bg-caveirito justify-between items-center text-white`}>
+                    <ActionIcon variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
+                        <IconChevronLeft style={{width: 41  , height: 41}} stroke={1.5} />
+                    </ActionIcon>
                     <Link href="/menu" prefetch={true}>
                         {pathname === '/menu/Chickens' ? <Image src="/images/chickens-logo.webp" alt="Logo Chickens" style={{ height: '100px', width: '100px' }} width={2000} height={2000} quality={100} priority /> : <Image src="/images/logo.png" alt="Logo Caveiras" style={{ height: pathname === '/' ? '150px' : '70px', width: pathname === '/' ? '220px' : '100px' }} width={2000} height={2000} quality={100} priority />}
                     </Link>
