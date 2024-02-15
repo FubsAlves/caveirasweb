@@ -3,7 +3,7 @@
 import { Button, Modal, Transition, ScrollArea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { ActionIcon } from '@mantine/core';
-import { IconMinus, IconPaperBag, IconPlus, IconTrash } from '@tabler/icons-react';
+import { IconMinus, IconPlus, IconTrash } from '@tabler/icons-react';
 import { useBagStore } from '@/store/BagStore';
 import Total from '../Total';
 import Image from 'next/image';
@@ -46,7 +46,6 @@ export default function Bag ({opened} : BagProps) {
             }
             </Transition>
             <Modal zIndex={1002} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize}>
-                    
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (
@@ -97,7 +96,22 @@ export default function Bag ({opened} : BagProps) {
                         <h4><Total/> + Taxas de Entrega</h4>
                         <h5 className='italic text-sm mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
                     </div>
-                    <WhatsAppOrder/>
+                    <div className='flex items-end'>
+                        <WhatsAppOrder/>
+                        <ActionIcon variant='outline' disabled={bagItems.bag.length === 0 ? true : false} color='gray' size="md" radius="xl" aria-label='Remove' onClick={() => {
+                            bagItems.removeAllItemsFromBag()
+                            notifications.show({
+                                color: 'red',
+                                title: 'A sacola está vazia!',
+                                message: 'Todos os itens foram removidos da sacola!'
+                            })
+                        }}
+                            
+                        >
+                            <IconTrash/></ActionIcon>
+                    </div>
+                    
+                    
                     
             </Modal>
         </>

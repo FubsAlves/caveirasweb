@@ -19,7 +19,8 @@ interface BagStore {
     addItemToBag: (item: Item) => void;
     increaseQuantity: (id: string) => void;
     decreaseQuantity: (id: string) => void;
-    removeItemFromBag: (id: string) => void;    
+    removeItemFromBag: (id: string) => void;
+    removeAllItemsFromBag: () => void;    
 }
 
 export const useBagStore = create<BagStore>((set, get) => {
@@ -90,5 +91,9 @@ export const useBagStore = create<BagStore>((set, get) => {
               }
             }
           },
+
+          removeAllItemsFromBag: () => {
+            set({ bag: []});
+          }
     }
 })
