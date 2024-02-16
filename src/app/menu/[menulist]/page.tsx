@@ -54,7 +54,7 @@ export default function MenuList({params} : any) {
     
     return (
         <Suspense fallback={<Loading/>}>
-            {data.snacks.length >= 1 ? <div className="h-auto md:h-[110vh] mb-7 bg-white">
+            {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] mb-7 bg-white">
                     <Carousel withControls height="100%" style={{ flex: 1 }}>
                         {data.snacks.map((snack: any) => {
                             return (
@@ -63,7 +63,7 @@ export default function MenuList({params} : any) {
                                     {snack.logoSrc ? <Image src={snack.logoSrc.url} style={{height: "auto", width: "auto"}} width={64} height={64} alt={"Primary logo for " + snack.name}/> : ""}
                                     {snack.secondaryLogoSrc ? <Image src={snack.secondaryLogoSrc.url} style={{height: "auto", width: "auto"}} width={64} height={64} alt={"Secondary logo for " + snack.name}/> : ""}
                                 </div>
-                                <div className="flex text-2xl font-semibold text-[#502314] text-center">{snack.name}</div>
+                                <div className="flex text-2xl font-semibold text-[#502314] text-center mb-10 md:mb-24">{snack.name}</div>
                                 <div className="flex w-3/4 justify-center">
                                     {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[23%] left-[8%] w-14 h-14 md:w-20 md:h-20 md:left-[32%]" loop autoplay ref={animation}/> : ""}
                                     <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={300} height={300} alt={"Image for " + snack.name}/>
@@ -95,6 +95,7 @@ export default function MenuList({params} : any) {
                                         toogleBag();
                                     }}>Adicionar</Button>
                                 </div>
+                                
                         </Carousel.Slide>
                             )
                         })}
