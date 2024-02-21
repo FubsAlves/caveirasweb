@@ -50,9 +50,7 @@ export default function MenuList({params} : any) {
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turntrue);
-    console.log(data)
-    
-    
+     
     return (
         <Suspense fallback={<Loading/>}>
             {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] mb-7 bg-white">
@@ -61,10 +59,10 @@ export default function MenuList({params} : any) {
                             return (
                             <Carousel.Slide className="flex flex-col items-center" key={snack.id}>
                                 <div className="flex my-4 space-x-4 mt-4">
-                                    {snack.logoSrc ? <Image src={snack.logoSrc.url} style={{height: "auto", width: "auto"}} width={snack.primaryLogoWidthCustomSize != null ? snack.primaryLogoWidthCustomSize : 64 } height={snack.primaryLogoHeightCustomSize != null ? snack.primaryLogoHeightCustomSize : 64 } alt={"Primary logo for " + snack.name}/> : ""}
-                                    {snack.secondaryLogoSrc ? <Image src={snack.secondaryLogoSrc.url} style={{height: "auto", width: "auto"}} width={64} height={64} alt={"Secondary logo for " + snack.name}/> : ""}
+                                    {snack.logoSrc ? <Image src={snack.logoSrc.url} width={snack.primaryLogoWidthCustomSize != null ? snack.primaryLogoWidthCustomSize : 50 } height={snack.primaryLogoHeightCustomSize != null ? snack.primaryLogoHeightCustomSize : 50 } alt={"Primary logo for " + snack.name}/> : ""}
+                                    {snack.secondaryLogoSrc ? <Image src={snack.secondaryLogoSrc.url} width={50} height={50} alt={"Secondary logo for " + snack.name}/> : ""}
                                 </div>
-                                <div className="flex text-2xl font-semibold text-[#502314] text-center mb-10 md:mb-24">{snack.name}</div>
+                                <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>
                                 <div className="flex w-3/4 justify-center">
                                     {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[23%] left-[8%] w-14 h-14 md:w-20 md:h-20 md:left-[32%]" loop autoplay ref={animation}/> : ""}
                                     <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={snack.imageWidthCustomSize != null ? snack.imageWidthCustomSize : 200 } height={snack.imageHeightCustomSize != null ? snack.imageHeightCustomSize : 300 } alt={"Image for " + snack.name}/>

@@ -11,7 +11,7 @@ export default function DropdownMenu() {
 
 
     return (
-        <Menu opened={opened} shadow="md" width={200} offset={27} position="top-start" transitionProps={{ transition: 'scale', duration: 200}}>
+        <Menu zIndex={1021} opened={opened} shadow="md" width={200} offset={27} position="top-start" transitionProps={{ transition: 'scale', duration: 200}}>
             <Menu.Target>
                 <Burger opened={opened} onClick={toggle} aria-label="Menu" color="white"/>
             </Menu.Target>
