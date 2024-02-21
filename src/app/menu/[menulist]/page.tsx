@@ -50,6 +50,7 @@ export default function MenuList({params} : any) {
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turntrue);
+    console.log(data)
     
     
     return (
@@ -58,20 +59,20 @@ export default function MenuList({params} : any) {
                     <Carousel withControls height="100%" style={{ flex: 1 }}>
                         {data.snacks.map((snack: any) => {
                             return (
-                            <Carousel.Slide className="flex flex-col justify-center items-center" key={snack.id}>
-                                <div className="flex my-4 space-x-4">
-                                    {snack.logoSrc ? <Image src={snack.logoSrc.url} style={{height: "auto", width: "auto"}} width={64} height={64} alt={"Primary logo for " + snack.name}/> : ""}
+                            <Carousel.Slide className="flex flex-col items-center" key={snack.id}>
+                                <div className="flex my-4 space-x-4 mt-4">
+                                    {snack.logoSrc ? <Image src={snack.logoSrc.url} style={{height: "auto", width: "auto"}} width={snack.primaryLogoWidthCustomSize != null ? snack.primaryLogoWidthCustomSize : 64 } height={snack.primaryLogoHeightCustomSize != null ? snack.primaryLogoHeightCustomSize : 64 } alt={"Primary logo for " + snack.name}/> : ""}
                                     {snack.secondaryLogoSrc ? <Image src={snack.secondaryLogoSrc.url} style={{height: "auto", width: "auto"}} width={64} height={64} alt={"Secondary logo for " + snack.name}/> : ""}
                                 </div>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-10 md:mb-24">{snack.name}</div>
                                 <div className="flex w-3/4 justify-center">
                                     {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[23%] left-[8%] w-14 h-14 md:w-20 md:h-20 md:left-[32%]" loop autoplay ref={animation}/> : ""}
-                                    <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={300} height={300} alt={"Image for " + snack.name}/>
+                                    <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={snack.imageWidthCustomSize != null ? snack.imageWidthCustomSize : 200 } height={snack.imageHeightCustomSize != null ? snack.imageHeightCustomSize : 300 } alt={"Image for " + snack.name}/>
                                 </div>
                                 <div className="flex w-[75%] my-4 justify-center items-center">
                                     <p className="text-[#502314] font-sans text-md italic my-2 text-center leading-none">{snack.description}</p>
                                 </div>
-                                <div className="flex w-2/4 my-4 justify-center">
+                                <div className="flex w-2/4 my-4 justify-center">    
                                     <h3 className="text-[#502314] font-semibold text-2xl text-center">R${snack.price.toFixed(2)}</h3>
                                 </div>
                                 <div className="flex w-2/4  my-4 justify-center">
@@ -82,6 +83,10 @@ export default function MenuList({params} : any) {
                                             price: snack.price,
                                             imageSrc: {
                                                 url: snack.imageSrc.url,
+                                            },
+                                            imageCustomSize: {
+                                                width: snack.bagImageWidthCustomSize,
+                                                height: snack.bagImageHeightCustomSize,
                                             }
                                             
                                         })

@@ -6,6 +6,10 @@ import { create } from "zustand";
     imageSrc: {
         url: string;
     }
+    imageCustomSize?: {
+      width?: number;
+      height?: number
+    } 
     quantity?: number | undefined | null;
     price: number;
     extra?: [{

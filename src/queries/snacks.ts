@@ -20,6 +20,16 @@ const GET_SNACKS = gql`
             category {
                 name
             }
+            imageWidthCustomSize
+            imageHeightCustomSize
+            primaryLogoWidthCustomSize
+            primaryLogoHeightCustomSize
+            secondaryLogoWidthCustomSize
+            secondaryLogoHeightCustomSize
+            bagImageWidthCustomSize
+            bagImageHeightCustomSize
+            
+            
         }
     }
 `;

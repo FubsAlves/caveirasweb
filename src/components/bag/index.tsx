@@ -45,7 +45,7 @@ export default function Bag ({opened} : BagProps) {
             </div>
             }
             </Transition>
-            <Modal zIndex={1002} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize}>
+            <Modal zIndex={1020} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize} centered>
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (
@@ -58,7 +58,7 @@ export default function Bag ({opened} : BagProps) {
                                 </div>
                                 <div className='grid grid-cols-1 w-[30%]'>
                                     <div className='w-5 h-5 relative text-white bg-chickens rounded-full text-sm text-center top-7 left-[65%]'>{item.quantity}</div>
-                                    <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: 55, height: 60}} width={1080} height={800}/>
+                                    <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: item.imageCustomSize?.width != null ? item.imageCustomSize.width : 55, height: item.imageCustomSize?.height != null ? item.imageCustomSize.height : 60}} width={1080} height={800}/>
                                     <div className='place-self-center'>
                                         {/* 
 // @ts-ignore */}
