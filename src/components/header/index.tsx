@@ -14,7 +14,7 @@ export default function Header() {
    
     return (
         <>
-                <div className={pathname === '/menu/Chickens' ? "flex flex-row w-full h-[18vh] bg-chickens justify-between items-center text-white" : `flex flex-row w-full ${pathname === '/' ? 'h-[30vh]' : 'h-[18vh]'} bg-caveirito justify-between items-center text-white`}>
+                <header className={pathname === '/menu/Chickens' ? "flex flex-row w-full h-[18vh] bg-chickens justify-between items-center text-white sticky top-0 z-[1011]" : `flex flex-row w-full ${pathname === '/' ? 'h-[30vh]' : 'h-[18vh]'} bg-caveirito justify-between items-center text-white sticky top-0 z-[1011]`}>
                     <ActionIcon className="ml-4" variant="transparent" color="white" size="xl" aria-label="Return" onClick={() => {router.back()}}>
                         <IconChevronLeft style={{width: 41  , height: 41}} stroke={1.5} />
                     </ActionIcon>
@@ -25,7 +25,7 @@ export default function Header() {
                         <DropdownMenu/>
                     </div>
                               
-                </div>
+                </header>
             
         </>
     );
