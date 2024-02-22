@@ -8,12 +8,6 @@ const GET_SNACKS = gql`
             isNew
             description
             price
-            logoSrc {
-                url
-            }
-            secondaryLogoSrc {
-                url
-            }
             imageSrc {
                 url
             }
@@ -22,10 +16,6 @@ const GET_SNACKS = gql`
             }
             imageWidthCustomSize
             imageHeightCustomSize
-            primaryLogoWidthCustomSize
-            primaryLogoHeightCustomSize
-            secondaryLogoWidthCustomSize
-            secondaryLogoHeightCustomSize
             bagImageWidthCustomSize
             bagImageHeightCustomSize
             

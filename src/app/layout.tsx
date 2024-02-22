@@ -64,7 +64,7 @@ export default function RootLayout({
       <body className='bg-white'>
         <ApolloWrapper>
           <MantineProvider theme={{fontFamily: flame.style.fontFamily}}>
-            <Notifications position='top-center' zIndex={1005}/>
+            <Notifications position='top-center' zIndex={2001}/>
             <Header/>
             {children}
             <GoogleAnalytics gaId="G-Z7268PL9YB" />
