@@ -47,7 +47,7 @@ export default function MenuList({params} : any) {
      
     return (
         <Suspense fallback={<Loading/>}>
-            {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] mb-7 bg-white">
+            {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] bg-white">
                     <Carousel withControls height="100%" style={{ flex: 1 }}>
                         {data.snacks.map((snack: any) => {
                             return (
