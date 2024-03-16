@@ -54,7 +54,7 @@ export default function MenuList({params} : any) {
                             <Carousel.Slide className="flex flex-col items-center" key={snack.id}>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>
                                 <div className="flex w-3/4 justify-center">
-                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[10%] left-[15%] w-14 h-14 md:w-20 md:h-20 md:left-[32%]" loop autoplay ref={animation}/> : ""}
+                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[15%] w-14 h-14 md:w-20 md:h-20 md:top-[25%] md:left-[40%]" loop autoplay ref={animation}/> : ""}
 
                                     <Image src={snack.imageSrc.url} style={{height: "auto", width: "auto"}} priority={true} width={snack.imageWidthCustomSize != null ? snack.imageWidthCustomSize : 200 } height={snack.imageHeightCustomSize != null ? snack.imageHeightCustomSize : 300 } alt={"Image for " + snack.name}/>
                                 </div>
