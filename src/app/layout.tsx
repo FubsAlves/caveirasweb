@@ -39,7 +39,7 @@ const flame = localFont({
 
 export const metadata: Metadata = {
   title: 'Caveiras Burguer',
-  description: 'Peça Já um CB',
+  description: 'Peça Já um CB!',
 
   
   
