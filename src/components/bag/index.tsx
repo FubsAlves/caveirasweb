@@ -76,7 +76,7 @@ export default function Bag ({opened} : BagProps) {
                                     <h5 className='font-semibold'>{formatter.format(item.price * item.quantity)}</h5>
                                 </div>
                                 <div className='grid grid-cols-1 w-[30%]'>
-                                    <div className='w-5 h-5 relative text-white bg-chickens rounded-full text-sm text-center top-7 left-[65%]'>{item.quantity}</div>
+                                    <div className='w-5 h-5 relative text-white bg-chickens rounded-full text-sm text-center top-7 left-[25%]'>{item.quantity}</div>
                                     <Image className='place-self-center' src={item.imageSrc.url} alt={item.name} style={{width: item.imageCustomSize?.width != null ? item.imageCustomSize.width : 55, height: item.imageCustomSize?.height != null ? item.imageCustomSize.height : 60}} width={1080} height={800}/>
                                     <div className='place-self-center'>
                                         {/* 
