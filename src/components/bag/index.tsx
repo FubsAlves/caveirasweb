@@ -1,14 +1,31 @@
 "use client"
 
-import { Button, Modal, Transition, ScrollArea } from '@mantine/core';
+import { Modal, Transition, ScrollArea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { ActionIcon } from '@mantine/core';
-import { IconMinus, IconPlus, IconTrash } from '@tabler/icons-react';
+import { ActionIcon, Table } from '@mantine/core';
+import { IconMinus, IconPlus, IconTrash, IconCash } from '@tabler/icons-react';
 import { useBagStore } from '@/store/BagStore';
 import Total from '../Total';
 import Image from 'next/image';
 import { notifications } from '@mantine/notifications';
 import WhatsAppOrder from '../whatsapporder';
+import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
+import GET_DELIVERYFEES from '@/queries/deliveryfees';
+import { ApolloError } from '@apollo/client';
+import { Suspense, useEffect } from 'react';
+
+
+interface DataProps {
+    fees: {
+        id: string;
+        bairro: string;
+        feeValue: Number;
+    }
+}
+interface QueryProps {
+    fees: DataProps[];
+    error: ApolloError | undefined
+}
 
 interface BagProps {
     opened : boolean;
@@ -17,8 +34,10 @@ interface BagProps {
 export default function Bag ({opened} : BagProps) {
     
     const [openedBag, { open, close }] = useDisclosure(false);
+    const [openedFees, {open : openFees, close: closeFees}] = useDisclosure(false); 
     const bagItems = useBagStore();
-
+    const { error, data } = useSuspenseQuery<QueryProps>(GET_DELIVERYFEES, { fetchPolicy: "network-only"});
+    
     const formatter = new Intl.NumberFormat('pt-BR', {
         style: "currency",
         currency: "BRL",
@@ -94,7 +113,10 @@ export default function Bag ({opened} : BagProps) {
                     <div className='flex flex-col text-caveiras font-semibold'>
                         <h3>Total:</h3>
                         <h4><Total/> + Taxas de Entrega</h4>
-                        <h5 className='italic text-sm mt-4 font-sans'>Consulte os valores das taxas de entrega diretamente do WhatsApp.</h5>
+                        <div className='flex flex-row w-full items-center space-x-2 mt-4' onClick={() => {openFees(), console.log(data)}}>
+                            <ActionIcon variant='outline' color='green' size="md" radius="xl" aria-label='Tabela de taxas'> <IconCash /> </ActionIcon>
+                            <h5 className='italic text-sm font-sans cursor-pointer hover:text-caveirito hover:underline'>Valores das taxas de Entrega.</h5>
+                        </div>
                     </div>
                     <div className='flex items-end'>
                         <WhatsAppOrder/>
@@ -110,7 +132,28 @@ export default function Bag ({opened} : BagProps) {
                         >
                             <IconTrash/></ActionIcon>
                     </div>
-                    
+                    <Modal opened={openedFees} zIndex={1025} onClose={closeFees} title="Valores das Taxas de Entrega" scrollAreaComponent={ScrollArea.Autosize} centered>
+                        <Suspense>
+                            <Table>
+                                <Table.Thead>
+                                    <Table.Tr>
+                                        <Table.Th>Bairro</Table.Th>
+                                        <Table.Th>Valor</Table.Th>
+                                    </Table.Tr>
+                                </Table.Thead>
+                                <Table.Tbody>
+                                    {data.fees.map((fee: any) => {
+                                        return (
+                                            <Table.Tr key={fee.bairro}>
+                                                <Table.Td>{fee.bairro}</Table.Td>
+                                                <Table.Td>{formatter.format(fee.feeValue)}</Table.Td>
+                                            </Table.Tr>
+                                        )
+                                    })}
+                                </Table.Tbody>
+                            </Table>
+                        </Suspense>
+                    </Modal>
                     
                     
             </Modal>
