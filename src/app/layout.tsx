@@ -61,7 +61,7 @@ export default function RootLayout({
         sizes="240x240"
         />
       </head>
-      <body className='bg-white'>
+      <body className='bg-white' suppressHydrationWarning={true}>
         <ApolloWrapper>
           <MantineProvider theme={{fontFamily: flame.style.fontFamily}}>
             <Notifications position='top-center' zIndex={2001}/>

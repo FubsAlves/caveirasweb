@@ -2,13 +2,12 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Bag from "../bag";
-import { useEffect, useState } from "react";
-import { useBagStatusStore } from "@/store/BagStatusStore";
-
+import { useBagDelayStore, useBagStatusStore } from "@/store/BagStatusStore";
 export default function Footer() {
    
     const pathname = usePathname(); 
     const bagStatus = useBagStatusStore();
+    const setDelay = useBagDelayStore((state) => state.setDelay);
     
     return (
         <>
@@ -17,12 +16,10 @@ export default function Footer() {
                 <div className={pathname === '/menu/Chickens' ? "flex justify-center w-full h-12 bg-chickens" : "flex justify-center w-full h-12 bg-caveirito"} onClick={() => 
                     {
                         bagStatus.toogleShow();
-                        setTimeout(() => {
-                            bagStatus.turnFalse()
-                        }, 15000)
-
+                        setDelay();
                     }
-                    }>
+                    }
+                    >
                     <Image className="pt-2" src="/images/cb.png" style={{ width: "auto", height: "auto" }} width={60} height={60} alt="CB" />
                 </div>
             </div>

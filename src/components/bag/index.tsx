@@ -12,7 +12,8 @@ import WhatsAppOrder from '../whatsapporder';
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
 import GET_DELIVERYFEES from '@/queries/deliveryfees';
 import { ApolloError } from '@apollo/client';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
+import { useBagDelayStore, useBagStatusStore } from '@/store/BagStatusStore';
 
 
 interface DataProps {
@@ -36,6 +37,10 @@ export default function Bag ({opened} : BagProps) {
     const [openedBag, { open, close }] = useDisclosure(false);
     const [openedFees, {open : openFees, close: closeFees}] = useDisclosure(false); 
     const bagItems = useBagStore();
+    const clearDelay = useBagDelayStore(state => state.clearDelay);
+    const setDelay = useBagDelayStore(state => state.setDelay);
+    
+   
     const { error, data } = useSuspenseQuery<QueryProps>(GET_DELIVERYFEES, { fetchPolicy: "network-only"});
     
     const formatter = new Intl.NumberFormat('pt-BR', {
@@ -53,7 +58,7 @@ export default function Bag ({opened} : BagProps) {
                 timingFunction='ease'
             >
             {(styles) => 
-            <div style={styles} className="flex flex-row items-center justify-around w-full h-14 bg-[#870018] hover:cursor-pointer text-white" onClick={open}>
+            <div style={styles} className="flex flex-row items-center justify-around w-full h-14 bg-[#870018] hover:cursor-pointer text-white" onMouseEnter={() => {clearDelay()}} onMouseLeave={() => {setDelay()}} onClick={() => {open(); clearDelay(); console.log('Clicou') }}>
             
                 <div className='w-[25%] flex justify-center items-end'>
                     <div className='z-[5] w-5 h-5 relative text-white bg-caveirito rounded-full text-sm text-center top-[-117px] left-[18%] md:left-[5%]'>{bagItems.bag.length}</div>
@@ -113,7 +118,7 @@ export default function Bag ({opened} : BagProps) {
                     <div className='flex flex-col text-caveiras font-semibold'>
                         <h3>Total:</h3>
                         <h4><Total/> + Taxas de Entrega</h4>
-                        <div className='flex flex-row w-full items-center space-x-2 mt-4' onClick={() => {openFees(), console.log(data)}}>
+                        <div className='flex flex-row w-full items-center space-x-2 mt-4' onClick={() => {openFees()}}>
                             <ActionIcon variant='outline' color='green' size="md" radius="xl" aria-label='Tabela de taxas'> <IconCash /> </ActionIcon>
                             <h5 className='italic text-sm font-sans cursor-pointer hover:text-caveirito hover:underline'>Valores das taxas de Entrega.</h5>
                         </div>
