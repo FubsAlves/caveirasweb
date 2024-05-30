@@ -43,7 +43,8 @@ export default function MenuList({params} : any) {
     const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "network-only"});
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
-    const toogleBag = useBagStatusStore(state => state.turntrue);
+    const toogleBag = useBagStatusStore(state => state.turnTrue);
+    const closeBag = useBagStatusStore(state => state.turnFalse);
      
     return (
         <Suspense fallback={<Loading/>}>
@@ -87,6 +88,9 @@ export default function MenuList({params} : any) {
                                         })
 
                                         toogleBag();
+                                        setTimeout(() => {
+                                            closeBag()
+                                        }, 15000)
                                     }}>Adicionar</Button>
                                 </div>
                                 
