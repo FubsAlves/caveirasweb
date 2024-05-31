@@ -140,17 +140,17 @@ export default function Bag ({opened} : BagProps) {
                     <Modal opened={openedFees} zIndex={1025} onClose={closeFees} title="Valores das Taxas de Entrega" scrollAreaComponent={ScrollArea.Autosize} centered>
                         <Suspense>
                             <div className='grid grid-cols-2 place-items-center mb-3'>
-                                <h3 className='w-[50%] text-center'>Bairro</h3>
-                                <h3 className='w-[50%] text-center'>Valor</h3>
+                                <h3 className='w-full text-center'>Bairro</h3>
+                                <h3 className='w-full text-center'>Valor</h3>
                             </div>
                             <div className='flex flex-col justify-around w-[100%]'>
                                 {data.fees.map((fee: any) => {
                                     return (
-                                        <div className='flex justify-b' key={fee.bairro}>
-                                            <div className='w-[50%] text-center'>
+                                        <div className='flex border-y-[1px] border-caveirito' key={fee.bairro}>
+                                            <div className='flex w-[50%] justify-center items-center h-12 text-center'>
                                                 <h3>{fee.bairro}</h3>
                                             </div>
-                                            <div className='w-[50%] text-center'>
+                                            <div className='flex w-[50%] justify-center items-center h-12 text-center'>
                                                 <h3>{formatter.format(fee.feeValue)}</h3>
                                             </div>
                                             
