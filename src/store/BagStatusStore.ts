@@ -42,8 +42,6 @@ export const useBagDelayStore = create<BagDelayStore>((set, get) => {
 
         clearDelay: () => {
             clearTimeout(get().delay);
-
-            
         }
          
     }

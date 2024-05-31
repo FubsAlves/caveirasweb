@@ -44,7 +44,6 @@ export default function MenuList({params} : any) {
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
-    const closeBag = useBagStatusStore(state => state.turnFalse);
     const setDelay = useBagDelayStore(state => state.setDelay);
      
     return (
