@@ -69,7 +69,7 @@ export default function Bag ({opened} : BagProps) {
             </div>
             }
             </Transition>
-            <Modal zIndex={1020} opened={openedBag} onClose={close} title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize} centered>
+            <Modal zIndex={1020} opened={openedBag} onClose={() => {close(); setDelay();}} onMouseEnter={() => {clearDelay()}}  title="Informações do Pedido" scrollAreaComponent={ScrollArea.Autosize} centered>
                     <div className='w-full h-auto grid grid-cols-1 divide-y-2 divide-caveirito'>
                         {bagItems.bag.map((item) => {
                             return (

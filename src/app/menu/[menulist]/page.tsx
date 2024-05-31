@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation";
 import { Button } from '@mantine/core';
 import { useBagStore } from "@/store/BagStore";
 import { notifications } from '@mantine/notifications';
-import { useBagStatusStore } from "@/store/BagStatusStore";
+import { useBagDelayStore, useBagStatusStore } from "@/store/BagStatusStore";
 
 
 interface DataProps {
@@ -45,6 +45,7 @@ export default function MenuList({params} : any) {
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
     const closeBag = useBagStatusStore(state => state.turnFalse);
+    const setDelay = useBagDelayStore(state => state.setDelay);
      
     return (
         <Suspense fallback={<Loading/>}>
@@ -88,9 +89,7 @@ export default function MenuList({params} : any) {
                                         })
 
                                         toogleBag();
-                                        setTimeout(() => {
-                                            closeBag()
-                                        }, 15000)
+                                        setDelay();
                                     }}>Adicionar</Button>
                                 </div>
                                 
