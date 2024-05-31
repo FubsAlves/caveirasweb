@@ -139,24 +139,25 @@ export default function Bag ({opened} : BagProps) {
                     </div>
                     <Modal opened={openedFees} zIndex={1025} onClose={closeFees} title="Valores das Taxas de Entrega" scrollAreaComponent={ScrollArea.Autosize} centered>
                         <Suspense>
-                            <Table>
-                                <Table.Thead>
-                                    <Table.Tr>
-                                        <Table.Th>Bairro</Table.Th>
-                                        <Table.Th>Valor</Table.Th>
-                                    </Table.Tr>
-                                </Table.Thead>
-                                <Table.Tbody>
-                                    {data.fees.map((fee: any) => {
-                                        return (
-                                            <Table.Tr key={fee.bairro}>
-                                                <Table.Td>{fee.bairro}</Table.Td>
-                                                <Table.Td>{formatter.format(fee.feeValue)}</Table.Td>
-                                            </Table.Tr>
-                                        )
-                                    })}
-                                </Table.Tbody>
-                            </Table>
+                            <div className='grid grid-cols-2 place-items-center mb-3'>
+                                <h3 className='w-[50%] text-center'>Bairro</h3>
+                                <h3 className='w-[50%] text-center'>Valor</h3>
+                            </div>
+                            <div className='flex flex-col justify-around w-[100%]'>
+                                {data.fees.map((fee: any) => {
+                                    return (
+                                        <div className='flex justify-b' key={fee.bairro}>
+                                            <div className='w-[50%] text-center'>
+                                                <h3>{fee.bairro}</h3>
+                                            </div>
+                                            <div className='w-[50%] text-center'>
+                                                <h3>{formatter.format(fee.feeValue)}</h3>
+                                            </div>
+                                            
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </Suspense>
                     </Modal>
                     
