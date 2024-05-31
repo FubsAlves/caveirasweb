@@ -56,9 +56,9 @@ export default function RootLayout({
       <head>
       <link
         rel="icon"
-        href="/fav.webp"
-        type="image/webp"
-        sizes="240x240"
+        href="/favicon.png"
+        type="image/png"
+        sizes="144x144"
         />
       </head>
       <body className='bg-white' suppressHydrationWarning={true}>
