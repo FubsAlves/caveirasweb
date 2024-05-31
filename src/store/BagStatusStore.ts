@@ -10,7 +10,7 @@ interface BagStatusStore {
 interface BagDelayStore {
     delay?: NodeJS.Timeout | undefined;
     setDelay: () => void,
-    clearDelay: (openedModal? : Boolean) => void;
+    clearDelay: () => void;
 }
 
 export const useBagStatusStore = create<BagStatusStore>((set) => {
@@ -40,8 +40,9 @@ export const useBagDelayStore = create<BagDelayStore>((set, get) => {
             
         },
 
-        clearDelay: (openedModal) => {
+        clearDelay: () => {
             clearTimeout(get().delay);
+
             
         }
          
