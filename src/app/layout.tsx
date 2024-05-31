@@ -56,7 +56,7 @@ export default function RootLayout({
       <head>
       <link
         rel="icon"
-        href="/favicon.png"
+        href="/favico.png"
         type="image/png"
         sizes="144x144"
         />
