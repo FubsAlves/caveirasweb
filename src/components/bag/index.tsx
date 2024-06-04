@@ -16,15 +16,13 @@ import { Suspense } from 'react';
 import { useBagDelayStore, useBagStatusStore } from '@/store/BagStatusStore';
 
 
-interface DataProps {
-    fees: {
+interface FeeProps {
         id: string;
         bairro: string;
-        feeValue: Number;
-    }
+        feeValue: number;   
 }
 interface QueryProps {
-    fees: DataProps[];
+    fees: FeeProps[];
     error: ApolloError | undefined
 }
 
@@ -144,7 +142,7 @@ export default function Bag ({opened} : BagProps) {
                                 <h3 className='w-full text-center'>Valor</h3>
                             </div>
                             <div className='flex flex-col justify-around w-[100%]'>
-                                {data.fees.map((fee: any) => {
+                                {data.fees.map((fee: FeeProps) => {
                                     return (
                                         <div className='flex border-y-[1px] border-caveirito' key={fee.bairro}>
                                             <div className='flex w-[50%] justify-center items-center h-12 text-center'>
