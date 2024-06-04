@@ -115,12 +115,12 @@ export default function Bag ({opened} : BagProps) {
                             )
                         })}
                     </div>
-                    <div className='flex flex-col text-caveiras font-semibold'>
+                    <div className='flex flex-col text-caveirito font-semibold'>
                         <h3>Total:</h3>
                         <h4><Total/> + Taxas de Entrega</h4>
                         <div className='flex flex-row w-full items-center space-x-2 mt-4' onClick={() => {openFees()}}>
                             <ActionIcon variant='outline' color='green' size="md" radius="xl" aria-label='Tabela de taxas'> <IconCash /> </ActionIcon>
-                            <h5 className='italic text-sm font-sans cursor-pointer hover:text-caveirito hover:underline'>Valores das taxas de Entrega.</h5>
+                            <h5 className='italic text-sm font-sans cursor-pointer text-caveiras hover:text-caveirito hover:underline'>Valores das taxas de Entrega.</h5>
                         </div>
                     </div>
                     <div className='flex items-end'>
