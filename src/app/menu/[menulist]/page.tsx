@@ -15,6 +15,7 @@ import { useBagStore } from "@/store/BagStore";
 import { notifications } from '@mantine/notifications';
 import { useBagDelayStore, useBagStatusStore } from "@/store/BagStatusStore";
 
+import classes from './styles/caroussel.module.scss';
 
 interface DataProps {
     snacks : {
@@ -49,7 +50,7 @@ export default function MenuList({params} : any) {
     return (
         <Suspense fallback={<Loading/>}>
             {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] bg-white">
-                    <Carousel withControls height="100%" style={{ flex: 1 }}>
+                    <Carousel withControls height="100%" style={{ flex: 1 }} classNames={classes}>
                         {data.snacks.map((snack: any) => {
                             return (
                             <Carousel.Slide className="flex flex-col items-center" key={snack.id}>
