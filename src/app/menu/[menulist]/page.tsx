@@ -41,7 +41,7 @@ export default function MenuList({params} : any) {
     const selectedCategory = params.menulist;
     const pathname = usePathname();
     const QUERY = pathname === '/menu/Lan%C3%A7amentos' ? GET_NEWESTSNACKS : GET_SNACKS; 
-    const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory, limit: 30, offset: 0}, fetchPolicy: "cache-and-network"});
+    const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
@@ -52,7 +52,7 @@ export default function MenuList({params} : any) {
             {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] bg-white">
                     <Carousel withControls height="100%" style={{ flex: 1 }} classNames={classes}>
                         {data.snacks.map((snack: any) => {
-                            console.log(data.snacks)
+                            
                             return (
                             <Carousel.Slide className="flex flex-col items-center" key={snack.id}>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>

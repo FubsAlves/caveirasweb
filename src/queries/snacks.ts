@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const GET_SNACKS = gql`
     query getSnacks ($selectedCategory: String!) {
-        snacks (where: { category: { name : $selectedCategory } }) {
+        snacks (where: { category: { name : $selectedCategory } }, first: 30) {
             id
             name
             isNew
