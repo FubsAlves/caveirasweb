@@ -41,7 +41,7 @@ export default function MenuList({params} : any) {
     const selectedCategory = params.menulist;
     const pathname = usePathname();
     const QUERY = pathname === '/menu/Lan%C3%A7amentos' ? GET_NEWESTSNACKS : GET_SNACKS; 
-    const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "network-only", returnPartialData: false});
+    const { error, data } = useSuspenseQuery<QueryProps>(QUERY, {variables: {selectedCategory}, fetchPolicy: "cache-and-network"});
     const animation = useRef(null);
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
