@@ -87,14 +87,13 @@ export default function MenuList({params} : any) {
                                 
                                 <div className="flex w-full h-32 mb-4">
                                 
-
                                     
                                     <Swiper modules={[Autoplay]} autoplay={{delay: 2500, disableOnInteraction: false}} loop direction="horizontal" slidesPerView={snack.itemList.length > 3 ? 3 : 2 } nested={true} touchMoveStopPropagation touchReleaseOnEdges={true}>
                                   
                                         {snack.itemList.map((item : itemListProps) => {
                                             return (
                                                 <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "center", height: 130}}>
-                                                    <Image src={item.imageSrc.url} width={90} height={90} alt={item.name} loading="lazy" />
+                                                    <Image src={item.imageSrc.url} width={100} height={100} alt={item.name} loading="lazy" />
                                                     <h3 className="text-[#502314] text-xs md:text-sm">{item.name}</h3>
                                                 </SwiperSlide>
                                             )
