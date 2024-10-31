@@ -66,12 +66,12 @@ export default function MenuList({params} : any) {
      
     return (
         <Suspense fallback={<Loading/>}>
-            {data.snacks.length >= 1 ? <div className="h-auto md:h-[120vh] bg-white">
+            {data.snacks.length >= 1 ? <div className="h-auto md:h-[90vh] sm:h-[90vh] bg-white">
                     <Swiper className="md:w-[65%]" spaceBetween={0} slidesPerView={1}>
                         {data.snacks.map((snack: DataProps) => {
                             
                             return (
-                            <SwiperSlide key={snack.id} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <SwiperSlide key={snack.id} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center"}}>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>
                                 <div className="flex w-3/4 justify-center">
                                     {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[15%] w-14 h-14 md:w-20 md:h-20 md:top-[25%] md:left-[32%]" loop autoplay ref={animation}/> : ""}
@@ -93,9 +93,9 @@ export default function MenuList({params} : any) {
                                   
                                         {snack.itemList.map((item : itemListProps) => {
                                             return (
-                                                <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                                                <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "center", height: 130}}>
                                                     <Image src={item.imageSrc.url} width={90} height={90} alt={item.name} loading="lazy" />
-                                                    <h3 className="text-[#502314] text-xs flex">{item.name}</h3>
+                                                    <h3 className="text-[#502314] text-xs">{item.name}</h3>
                                                 </SwiperSlide>
                                             )
                                         })}
