@@ -11,6 +11,12 @@ const GET_NEWESTSNACKS = gql`
         url
       }
       price
+      itemList {
+        name
+        imageSrc {
+          url
+        }
+      }
     }
   }
 `;

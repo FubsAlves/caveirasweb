@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 const GET_SNACKS = gql`
     query getSnacks ($selectedCategory: String!) {
-        snacks (where: { category: { name : $selectedCategory } }, first: 30) {
+        snacks (where: { category: { name : $selectedCategory } }, first: 60) {
             id
             name
             isNew
@@ -14,6 +14,13 @@ const GET_SNACKS = gql`
             category {
                 name
             }
+            itemList {
+                name
+                imageSrc {
+                    url
+                }
+            }
+        
             imageWidthCustomSize
             imageHeightCustomSize
             bagImageWidthCustomSize

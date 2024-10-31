@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import '@mantine/carousel/styles.css';
 import '../styles/globals.scss';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
