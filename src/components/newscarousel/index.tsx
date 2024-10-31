@@ -2,7 +2,6 @@
 import GET_CAROUSELNEWS from '@/queries/carouselnews';
 import { ApolloError } from '@apollo/client';
 import { useSuspenseQuery } from '@apollo/experimental-nextjs-app-support/ssr';
-import { Carousel, CarouselSlide } from '@mantine/carousel';
 import Image from 'next/image';
 interface DataProps {
   id: string;
@@ -22,7 +21,7 @@ export default function NewsCarousel() {
   
   return (
     <div className='w-[100vw] h-[25vh]'>
-        <Carousel withIndicators withControls height="100%" style={{ flex: 1 }}>
+        {/* <Carousel withIndicators withControls height="100%" style={{ flex: 1 }}>
             {data.newss.map((news: DataProps) => {
               return (
                 <CarouselSlide key={news.id}>
@@ -30,7 +29,7 @@ export default function NewsCarousel() {
                 </CarouselSlide>
               )
             })}
-        </Carousel>
+        </Carousel> */}
     </div>
   )
 }
