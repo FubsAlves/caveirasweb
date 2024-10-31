@@ -66,7 +66,7 @@ export default function MenuList({params} : any) {
      
     return (
         <Suspense fallback={<Loading/>}>
-            {data.snacks.length >= 1 ? <div className="h-auto md:h-[90vh] sm:h-[90vh] bg-white">
+            {data.snacks.length >= 1 ? <div className="h-auto md:h-[90vh] sm:h-[100vh] bg-white">
                     <Swiper className="md:w-[65%]" spaceBetween={0} slidesPerView={1}>
                         {data.snacks.map((snack: DataProps) => {
                             
