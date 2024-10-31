@@ -80,7 +80,7 @@ export default function MenuList({params} : any) {
                                 </div>
                                
                                 <div className="flex justify-center w-[75%]">
-                                    <p className="text-[#502314] font-sans text-sm italic text-center leading-none mb-4">{snack.description}</p>
+                                    <p className="text-[#502314] font-sans text-sm md:text-base italic text-center leading-none mb-4">{snack.description}</p>
                                 </div>
                                 
                                 {snack.itemList.length > 0 ?
@@ -95,7 +95,7 @@ export default function MenuList({params} : any) {
                                             return (
                                                 <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "center", height: 130}}>
                                                     <Image src={item.imageSrc.url} width={90} height={90} alt={item.name} loading="lazy" />
-                                                    <h3 className="text-[#502314] text-xs">{item.name}</h3>
+                                                    <h3 className="text-[#502314] text-xs md:text-sm">{item.name}</h3>
                                                 </SwiperSlide>
                                             )
                                         })}
