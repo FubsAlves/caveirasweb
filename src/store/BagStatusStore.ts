@@ -35,7 +35,7 @@ export const useBagDelayStore = create<BagDelayStore>((set, get) => {
         setDelay: () => {
             const getStatus = useBagStatusStore.getState().status;
             if(getStatus) {
-               set({delay : setTimeout(() => {useBagStatusStore.getState().turnFalse()}, 10000)});
+               set({delay : setTimeout(() => {useBagStatusStore.getState().turnFalse()}, 4500)});
             }
             
         },
