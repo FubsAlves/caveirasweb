@@ -20,7 +20,9 @@ import { create } from "zustand";
 }
 interface BagStore {
     bag: Item[],
-    addItemToBag: (item: Item) => void;
+    currentSnack : Item | null | undefined,
+    setCurrentSnack: (item: Item) => void;    
+    addItemToBag: (item: Item | undefined | null) => void;
     increaseQuantity: (id: string) => void;
     decreaseQuantity: (id: string) => void;
     removeItemFromBag: (id: string) => void;
@@ -30,6 +32,15 @@ interface BagStore {
 export const useBagStore = create<BagStore>((set, get) => {
     return {
         bag: [],
+        currentSnack: null,
+        
+        setCurrentSnack: (item: Item) => {
+          
+      
+          set({ currentSnack: item });
+        
+
+        },
       
         addItemToBag: (item: Item) => {
             const itemExists = get().bag.find(
