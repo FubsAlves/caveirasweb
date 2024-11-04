@@ -6,7 +6,6 @@ import { useBagDelayStore, useBagStatusStore } from "@/store/BagStatusStore";
 import { Button } from "@mantine/core";
 import { notifications } from '@mantine/notifications';
 import { useBagStore } from "@/store/BagStore";
-import { useEffect } from "react";
 
 export default function Footer() {
    
@@ -16,8 +15,6 @@ export default function Footer() {
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
     const setDelay = useBagDelayStore(state => state.setDelay);
-
-    useEffect(() => {console.log(pathname)}, [pathname])
     
     return (
         <>

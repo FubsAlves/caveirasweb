@@ -2,8 +2,8 @@
 
 import { Modal, Transition, ScrollArea } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { ActionIcon, Table } from '@mantine/core';
-import { IconMinus, IconPlus, IconTrash, IconCash } from '@tabler/icons-react';
+import { ActionIcon } from '@mantine/core';
+import { IconMinus, IconPlus, IconTrash } from '@tabler/icons-react';
 import { useBagStore } from '@/store/BagStore';
 import Total from '../Total';
 import Image from 'next/image';
