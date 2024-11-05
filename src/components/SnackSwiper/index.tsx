@@ -49,8 +49,8 @@ export default function SnackSwiper(snacks : DataProps[] | any) {
                             
                             <SwiperSlide key={snack.id} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center"}}>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>
-                                <div className="flex justify-center relative w-[66%] mdm:w-[80%] sm:w-[75%] md:w-[50%] lg:w-[50%] msm:h-[30vh] mdm:h-[32vh] mlg:h-[38vh] md:h-[25vh] lg:h-[35vh]">
-                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[14%] w-14 h-14 md:w-20 md:h-20 md:top-[20%] md:left-[15%] lg:left-[18%]" loop autoplay ref={animation}/> : ""}
+                                <div className="flex justify-center relative w-[66%] mdm:w-[60%] sm:w-[75%] md:w-[50%] lg:w-[50%] msm:h-[30vh] mdm:h-[30vh] mlg:h-[33vh] md:h-[25vh] lg:h-[35vh]">
+                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[14%] w-14 h-14 md:w-20 md:h-20 mdm:left-[5%] md:top-[20%] md:left-[15%] lg:left-[18%]" loop autoplay ref={animation}/> : ""}
                                     <Image className="" alt={"alt for " + snack.name} width={400} height={400} src={snack.imageSrc.url}/>
                                     
                                 </div>
@@ -69,9 +69,9 @@ export default function SnackSwiper(snacks : DataProps[] | any) {
                                         {snack.itemList.map((item : itemListProps) => {
                                             return (
                                                 
-                                                <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "end", alignItems: "center", height: 130}}>
-                                                    <Image src={item.imageSrc.url} width={100} height={100} alt={item.name} loading="lazy" />
-                                                    <h3 className="text-[#502314] text-xs md:text-sm">{item.name}</h3>
+                                                <SwiperSlide key={item.name} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", height: 130}}>
+                                                    <Image src={item.imageSrc.url} width={80} height={80} alt={item.name} loading="lazy" />
+                                                    <h3 className="relative text-[#502314] text-xs md:text-sm">{item.name}</h3>
                                                 </SwiperSlide>
                                             )
                                         })}

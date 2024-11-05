@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="w-full fixed z-[1001] bottom-0"> 
                 
                 <Bag opened={bagStatus.status}/>
-                <div className={`flex items-center justify-center w-full msm:h-10 mdm:h-10 mlg:h-16 shadow-2xl shadow-inner shadow-stone-900" ${!pathname.includes("/menu/") ? "bg-caveirito" : "bg-[#F5F5F5]"}`}>
+                <div className={`flex items-center justify-center w-full msm:h-10 mdm:h-12 mlg:h-16 shadow-2xl shadow-inner shadow-stone-900" ${!pathname.includes("/menu/") ? "bg-caveirito" : "bg-[#F5F5F5]"}`}>
                         { pathname.includes('/menu/') ? <Button className="" color={`${pathname.includes("menu/Chickens") ? "#f07100" : "#B71105"}`} style={{color: "#fff", fontWeight: "bolder"}} variant="filled" radius="md" onClick={() => {
                                         addItem({
                                             id: currentSnack.id,

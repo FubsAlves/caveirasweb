@@ -56,7 +56,7 @@ export default function Bag ({opened} : BagProps) {
                 timingFunction='ease'
             >
             {(styles) => 
-            <div style={styles} className="flex flex-row items-center justify-around w-full msm:h-8 mdm:h-8 mlg:h-16 bg-[#870018] hover:cursor-pointer text-white" onMouseEnter={() => {clearDelay()}} onMouseLeave={() => {setDelay()}} onClick={() => {open(); clearDelay()}}>
+            <div style={styles} className="flex flex-row items-center justify-around w-full msm:h-8 mdm:h-10 mlg:h-16 bg-[#870018] hover:cursor-pointer text-white" onMouseEnter={() => {clearDelay()}} onMouseLeave={() => {setDelay()}} onClick={() => {open(); clearDelay()}}>
             
                 <div className='w-[25%] flex justify-center items-end'>
                     <div className='z-[5] w-5 h-5 relative text-white bg-caveirito rounded-full text-sm text-center top-[-117px] left-[18%] md:left-[5%]'>{bagItems.bag.length}</div>
