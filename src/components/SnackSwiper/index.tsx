@@ -3,8 +3,12 @@ import Image from "next/image";
 import { useBagStore } from "@/store/BagStore";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Player } from "@lottiefiles/react-lottie-player";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import { useRef, useState } from "react";
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { usePathname } from "next/navigation";
 
 
 interface DataProps {
@@ -37,12 +41,13 @@ export default function SnackSwiper(snacks : DataProps[] | any) {
 
     const setCurrent = useBagStore(state => state.setCurrentSnack)
     const animation = useRef(null);
+    const pathname : string = usePathname();
 
     const [instance, setInstance] = useState<SwiperClass | null>(null);
     const swiperElRef = useRef(null);
 
     return (
-        <Swiper id="SnackContainer" ref={swiperElRef} className="md:w-[65%]" onSwiper={setInstance} spaceBetween={0} slidesPerView={1} onSlideChange={() => {setCurrent(snacks.snacks[instance?.activeIndex])}}>
+        <Swiper id="SnackContainer" navigation={true} modules={[Navigation]} ref={swiperElRef} className="md:w-[65%]" onSwiper={setInstance} spaceBetween={0} slidesPerView={1} onSlideChange={() => {setCurrent(snacks.snacks[instance?.activeIndex])}} style={{'--swiper-navigation-color': `${pathname.includes('/menu/Chickens') ? '#f07100' : "#B71105"}`, '--swiper-navigation-size' : '33px'}}>
                     
                         {snacks.snacks.map((snack: DataProps) => {
                             return (

@@ -14,6 +14,7 @@ export default function Footer() {
     const currentSnack = useBagStore(state => state.currentSnack)
     const addItem = useBagStore(state => state.addItemToBag);
     const toogleBag = useBagStatusStore(state => state.turnTrue);
+    const toogleShow = useBagStatusStore(state => state.toogleShow);
     const setDelay = useBagDelayStore(state => state.setDelay);
     
     return (
@@ -45,7 +46,7 @@ export default function Footer() {
 
                                         toogleBag();
                                         setDelay();
-                                    }}>Adicionar ao pedido</Button>: <Image className="relative pt-4 w-16 h-16" src="/images/cb.png" alt="Caveirito" width={600} height={1500}/> }
+                                    }}>Adicionar ao pedido</Button>: <Image className="relative pt-4 w-16 h-16" src="/images/cb.png" alt="Caveirito" width={600} height={1500} onClick={() => {toogleShow()}}/> }
                         
                         
                 </div>
