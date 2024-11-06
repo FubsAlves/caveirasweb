@@ -23,30 +23,29 @@ export default function Footer() {
                 
                 <Bag opened={bagStatus.status}/>
                 <div className={`flex items-center justify-center w-full msm:h-10 mdm:h-12 mlg:h-16 shadow-2xl shadow-inner shadow-stone-900" ${!pathname.includes("/menu/") ? "bg-caveirito" : "bg-[#F5F5F5]"}`}>
-                        { pathname.includes('/menu/') ? <Button className="" color={`${pathname.includes("menu/Chickens") ? "#f07100" : "#B71105"}`} style={{color: "#fff", fontWeight: "bolder"}} variant="filled" radius="md" onClick={() => {
-                                        addItem({
-                                            id: currentSnack.id,
-                                            name: currentSnack.name,
-                                            price: currentSnack.price,
-                                            imageSrc: {
-                                                url: currentSnack.imageSrc.url,
-                                            },
-                                            imageCustomSize: {
-                                                width: currentSnack.bagImageWidthCustomSize,
-                                                height: currentSnack.bagImageHeightCustomSize,
-                                            }
-                                            
-                                        })
+                        { pathname.includes('/menu/') ? <><Button className="" color={`${pathname.includes("menu/Chickens") ? "#f07100" : "#B71105"}`} style={{ color: "#fff", fontWeight: "bolder" }} variant="filled" radius="md" onClick={() => {
+                        addItem({
+                            id: currentSnack.id,
+                            name: currentSnack.name,
+                            price: currentSnack.price,
+                            imageSrc: {
+                                url: currentSnack.imageSrc.url,
+                            },
+                            imageCustomSize: {
+                                width: currentSnack.bagImageWidthCustomSize,
+                                height: currentSnack.bagImageHeightCustomSize,
+                            }
+                        });
 
-                                        notifications.show({
-                                            color: "green",
-                                            title: 'Item adicionado!',
-                                            message: `${currentSnack.name} foi adicionado(a) a sacola!`
-                                        })
+                        notifications.show({
+                            color: "green",
+                            title: 'Item adicionado!',
+                            message: `${currentSnack.name} foi adicionado(a) a sacola!`
+                        });
 
-                                        toogleBag();
-                                        setDelay();
-                                    }}>Adicionar ao pedido</Button>: <Image className="relative pt-4 w-16 h-16" src="/images/cb.png" alt="Caveirito" width={600} height={1500} onClick={() => {toogleShow()}}/> }
+                        toogleBag();
+                        setDelay();
+                    } }>Adicionar ao pedido</Button> <Image className="absolute pt-4 w-16 h-16 msm:left-[78%] mdm:left-[75%]" src={`/images/${pathname.includes('/menu/Chickens') ? "cb_chickens.png" : "cb.png"}`} alt="Caveirito" width={600} height={1500} onClick={() => {toogleShow()}}/> </> : <Image className="relative pt-4 w-16 h-16" src={`/images/${pathname.includes('/menu/Chickens') ? "cb_chickens.png" : "cb.png"}`} alt="Caveirito" width={600} height={1500} onClick={() => {toogleShow()}}/> }
                         
                         
                 </div>
