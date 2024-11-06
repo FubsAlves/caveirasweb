@@ -54,8 +54,8 @@ export default function SnackSwiper(snacks : DataProps[] | any) {
                             
                             <SwiperSlide key={snack.id} style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center"}}>
                                 <div className="flex text-2xl font-semibold text-[#502314] text-center mb-3 md:mb-24">{snack.name}</div>
-                                <div className="flex justify-center relative w-[66%] mdm:w-[60%] sm:w-[75%] md:w-[50%] lg:w-[50%] msm:h-[30vh] mdm:h-[30vh] mlg:h-[29vh] md:h-[25vh] lg:h-[35vh]">
-                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[14%] w-14 h-14 md:w-20 md:h-20 mdm:left-[5%] md:top-[20%] md:left-[15%] lg:left-[18%]" loop autoplay ref={animation}/> : ""}
+                                <div className="flex justify-center relative w-[66%] mdm:w-[60%] sm:w-[75%] md:w-[50%] lg:w-[50%] msm:h-[30vh] mdm:h-[35vh] mlg:h-[29vh] md:h-[25vh] lg:h-[35vh]">
+                                    {snack.isNew ? <Player src="/animation/newSnack.json" className="absolute top-[13%] left-[14%] w-14 h-14 md:w-20 md:h-20 mdm:left-[1%] md:top-[20%] md:left-[15%] lg:left-[18%]" loop autoplay ref={animation}/> : ""}
                                     <Image className="" alt={"alt for " + snack.name} width={400} height={400} src={snack.imageSrc.url}/>
                                     
                                 </div>
