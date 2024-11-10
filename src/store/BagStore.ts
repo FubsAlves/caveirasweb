@@ -3,13 +3,10 @@ import { create } from "zustand";
  interface Item  {
     id: string;
     name: string;
+    isActive: boolean;
     imageSrc: {
         url: string;
     }
-    imageCustomSize?: {
-      width?: number;
-      height?: number
-    } 
     quantity?: number | undefined | null;
     price: number;
     extra?: [{
