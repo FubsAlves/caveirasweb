@@ -6,6 +6,7 @@ const GET_SNACKS = gql`
             id
             name
             isNew
+            isActive
             description
             price
             imageSrc {
@@ -19,13 +20,7 @@ const GET_SNACKS = gql`
                 imageSrc {
                     url
                 }
-            }
-        
-            imageWidthCustomSize
-            imageHeightCustomSize
-            bagImageWidthCustomSize
-            bagImageHeightCustomSize
-            
+            }          
             
         }
     }

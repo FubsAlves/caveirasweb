@@ -7,6 +7,7 @@ const GET_NEWESTSNACKS = gql`
       name
       description
       isNew
+      isActive
       imageSrc {
         url
       }
