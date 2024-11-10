@@ -23,7 +23,7 @@ export default function Footer() {
                 
                 <Bag opened={bagStatus.status}/>
                 <div className={`flex items-center justify-center w-full msm:h-10 mdm:h-12 mlg:h-16 shadow-2xl shadow-inner shadow-stone-900" ${!pathname.includes("/menu/") ? "bg-caveirito" : "bg-[#F5F5F5]"}`}>
-                        { pathname.includes('/menu/') ? <><Button disabled={currentSnack?.isActive ? false : true} color={`${pathname.includes("menu/Chickens") ? "#f07100" : "#B71105"}`} style={{ color: `${currentSnack?.isActive ? "#FFF" : "#502314"}`, fontWeight: "bolder" }} variant="filled" radius="md" onClick={() => {
+                        { pathname.includes('/menu/') ? <><Button disabled={currentSnack?.isActive ? false : true} color={`${pathname.includes("menu/Chickens") ? "#f07100" : "#B71105"}`} style={{ color: '#FFF', fontWeight: "bolder" }} variant="filled" radius="md" onClick={() => {
                         addItem({
                             id: currentSnack.id,
                             name: currentSnack.name,
