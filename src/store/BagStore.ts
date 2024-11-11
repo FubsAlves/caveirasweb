@@ -1,5 +1,7 @@
 import { create } from "zustand";
 
+import { persist } from "zustand/middleware"
+
  interface Item  {
     id: string;
     name: string;
@@ -26,7 +28,7 @@ interface BagStore {
     removeAllItemsFromBag: () => void;    
 }
 
-export const useBagStore = create<BagStore>((set, get) => {
+export const useBagStore = create(persist<BagStore>((set, get) => {
     return {
         bag: [],
         currentSnack: null,
@@ -108,4 +110,4 @@ export const useBagStore = create<BagStore>((set, get) => {
             set({ bag: []});
           }
     }
-})
+}, { name: "cart-storage" }))

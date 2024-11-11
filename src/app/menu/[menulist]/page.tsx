@@ -7,6 +7,7 @@ import Loading from "@/components/loading";
 import { ApolloError } from "@apollo/client";
 import GET_NEWESTSNACKS from "@/queries/newestsnacks";
 import { usePathname } from "next/navigation";
+import Image from 'next/image';
 
 
 import 'swiper/scss';
@@ -23,10 +24,6 @@ interface DataProps {
         }
         isNew: boolean;
         description: string;
-        imageWidthCustomSize: number;
-        imageHeightCustomSize: number;
-        bagImageWidthCustomSize: number;
-        bagImageHeightCustomSize: number;
         price: number;
         itemList: [itemListProps]
     
@@ -61,10 +58,18 @@ export default function MenuList(props: any) {
 
     return (
         <Suspense fallback={<Loading/>}>
-            {data.snacks.length >= 1 ? 
+         {error ? <div className="flex justify-center flex-col items-center min-h-[80vh] w-full">
+                <Image src="/images/secret-logo.png" width={120} height={120} alt="error-logo"></Image>
+                <h4 className="text-caveirito italic text-center w-3/4 mt-6">Nosso cardápio no momento está indisponível, tente novamente mais tarde.</h4>
+                </div> :  
+         data.snacks.length >= 1 ? 
             <div className="h-auto md:h-[90vh] sm:h-[100vh] bg-white">
                     <SnackSwiper snacks={data.snacks}/>
-            </div> : <div className="flex justify-center items-center min-h-[100vh] w-full"><h4 className="text-caveirito italic">Não há itens disponíveis.</h4></div> }
+            </div> : 
+            <div className="flex justify-center items-center min-h-[100vh] w-full"><h4 className="text-caveirito italic">Não há itens disponíveis.</h4></div> }
+            
+           
+            
         </Suspense>
     );
 }
